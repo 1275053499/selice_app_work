@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="VoideCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="170" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="170" height="200"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="case_picture.png" translatesAutoresizingMaskIntoConstraints="NO" id="7EM-DY-dRy">
+                        <rect key="frame" x="0.0" y="0.0" width="170" height="150"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="150" id="vha-nt-8xd"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="第一个视频" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhI-Ap-gHH">
+                        <rect key="frame" x="5" y="150" width="160" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="160" id="0Vm-Qv-xb6"/>
+                            <constraint firstAttribute="height" constant="20" id="ILn-7d-kHw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017:08:07" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8YX-2b-uAb">
+                        <rect key="frame" x="5" y="170" width="160" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="160" id="81Q-Gd-Mg0"/>
+                            <constraint firstAttribute="height" constant="20" id="o4N-by-5cm"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.63137254899999995" green="0.63137254899999995" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="8YX-2b-uAb" firstAttribute="top" secondItem="EhI-Ap-gHH" secondAttribute="bottom" id="7qM-EH-kfS"/>
+                <constraint firstAttribute="trailing" secondItem="7EM-DY-dRy" secondAttribute="trailing" id="Arv-Rd-aSc"/>
+                <constraint firstItem="EhI-Ap-gHH" firstAttribute="top" secondItem="7EM-DY-dRy" secondAttribute="bottom" id="Uen-W0-dWs"/>
+                <constraint firstItem="7EM-DY-dRy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="cfg-cG-GiS"/>
+                <constraint firstItem="8YX-2b-uAb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="gL4-mg-VYb"/>
+                <constraint firstItem="7EM-DY-dRy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="sqw-4e-Hmz"/>
+                <constraint firstItem="EhI-Ap-gHH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="v69-3z-dgZ"/>
+            </constraints>
+            <size key="customSize" width="186" height="231"/>
+            <connections>
+                <outlet property="Voideimage" destination="7EM-DY-dRy" id="jVS-X1-89a"/>
+                <outlet property="Voidetimes" destination="8YX-2b-uAb" id="I0P-vG-qr9"/>
+                <outlet property="Voidetitle" destination="EhI-Ap-gHH" id="wEa-8H-9Tc"/>
+            </connections>
+            <point key="canvasLocation" x="-595" y="51"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="case_picture.png" width="169" height="187"/>
+    </resources>
+</document>

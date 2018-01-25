@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewsController">
+            <connections>
+                <outlet property="messagetext" destination="mcr-2U-7Um" id="sGX-bP-hRC"/>
+                <outlet property="usertitles" destination="TtS-ei-82p" id="0Vg-RW-73O"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tsq-h6-hgD">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="1012"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo40.png" translatesAutoresizingMaskIntoConstraints="NO" id="fDl-MK-jwc">
+                            <rect key="frame" x="10" y="10" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="ih8-Qz-wAe"/>
+                                <constraint firstAttribute="height" constant="50" id="soA-hP-PaA"/>
+                            </constraints>
+                        </imageView>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mcr-2U-7Um">
+                            <rect key="frame" x="10" y="65" width="355" height="597"/>
+                            <string key="text">    铺皇（控股）集团是一家互联网商铺服务企业，旗下拥有中国铺王网、铺皇网 两大平台，秉承“为全国生意人保驾护航”的理念，9年来专注为商家实现 “低成本、智能化”的电子商务化产品服务，降低商家 “互联网+”门槛，倡导技术为核心，产品为导向，平台为基础，服务为价值，客户为根本的理念，创建 “服务第一”、加盟商一站式产品服务平台，经过十多年来的技术产品研发及上千家全国服务渠道体系的构建，实现对数千万商家的全面服务。 
+      2008年3月，开始切入企业服务领域，集团前身为中国铺王网。
+      2010年2月，提出企业一站式服务平台的理念。
+      2010年8月，正式开始一站式企业服务产品的研发。
+      2014年5月，全面实践企业“互联网+”一站式服务产品平台的应用推广。
+      2015年8月，企业互联网+一站式服务平台中国铺王网正式上线运营.铺皇雏形诞生，开始筹划落实铺皇平台建设，组建技术团队。
+      2016年1月，铺皇集团与贵州、宁夏、内蒙古、四川等省市中小企业服务中心达成战略合作关系，共建企业互联网电子商务化平台。
+
+   铺皇集团企业文化: 
+                 愿景：成为电子商务信息服务行业龙头企业。
+		  宗旨：服务第一，勇创奇迹。
+                 核心价值观：让客户满意，领导放心，员工开心。
+		  精神：激情，创新，协作，共赢。
+   公司地址：
+		深圳龙华总部：龙华新区民治东环一路良基大厦5楼520
+		深圳西乡分部：宝安区西乡共和工业路国汇通商务中心502（附近公交站台：西乡客运站，金港华庭）
+		  广州分公司地址：广东省广州市白云区增槎路787号睿晟国际503A</string>
+                            <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="铺小皇服务时间：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TtS-ei-82p">
+                            <rect key="frame" x="86" y="10" width="281" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="ykP-iZ-Vp3"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="TtS-ei-82p" firstAttribute="leading" secondItem="fDl-MK-jwc" secondAttribute="trailing" constant="26" id="0gS-92-HW0"/>
+                        <constraint firstAttribute="bottom" secondItem="fDl-MK-jwc" secondAttribute="bottom" constant="952" id="90w-0a-osz"/>
+                        <constraint firstItem="mcr-2U-7Um" firstAttribute="top" secondItem="fDl-MK-jwc" secondAttribute="bottom" constant="5" id="AFD-Of-ytp"/>
+                        <constraint firstItem="fDl-MK-jwc" firstAttribute="top" secondItem="Tsq-h6-hgD" secondAttribute="top" constant="10" id="DkX-VF-NkJ"/>
+                        <constraint firstAttribute="trailing" secondItem="mcr-2U-7Um" secondAttribute="trailing" constant="10" id="QLH-RU-ruB"/>
+                        <constraint firstAttribute="trailing" secondItem="fDl-MK-jwc" secondAttribute="trailing" constant="315" id="V2L-jw-ghm"/>
+                        <constraint firstAttribute="bottom" secondItem="mcr-2U-7Um" secondAttribute="bottom" constant="350" id="ffa-gN-21D"/>
+                        <constraint firstItem="TtS-ei-82p" firstAttribute="top" secondItem="Tsq-h6-hgD" secondAttribute="top" constant="10" id="imG-1h-aad"/>
+                        <constraint firstAttribute="trailing" secondItem="TtS-ei-82p" secondAttribute="trailing" constant="8" id="l9h-ca-J3d"/>
+                        <constraint firstItem="mcr-2U-7Um" firstAttribute="leading" secondItem="Tsq-h6-hgD" secondAttribute="leading" constant="10" id="wT7-RD-rLb"/>
+                        <constraint firstItem="fDl-MK-jwc" firstAttribute="leading" secondItem="Tsq-h6-hgD" secondAttribute="leading" constant="10" id="yVp-7G-sN8"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Tsq-h6-hgD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9cf-0J-CZz"/>
+                <constraint firstAttribute="bottom" secondItem="Tsq-h6-hgD" secondAttribute="bottom" constant="-345" id="EK4-Ld-kPA"/>
+                <constraint firstAttribute="trailing" secondItem="Tsq-h6-hgD" secondAttribute="trailing" id="cDt-Z1-v57"/>
+                <constraint firstItem="Tsq-h6-hgD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mYb-eI-B0E"/>
+            </constraints>
+            <point key="canvasLocation" x="28" y="-1481"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="logo40.png" width="40" height="40"/>
+    </resources>
+</document>

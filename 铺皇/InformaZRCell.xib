@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="KGk-i7-Jjw" customClass="InformaZRCell">
+            <rect key="frame" x="0.0" y="0.0" width="450" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="450" height="79.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nyj-jx-zFd">
+                        <rect key="frame" x="22" y="13" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="78s-T6-PSe"/>
+                            <constraint firstAttribute="width" constant="60" id="iE3-hN-2Q6"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="宝安区餐饮低价转让宝安区" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I98-o0-ODB">
+                        <rect key="frame" x="92" y="13" width="328" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="SYu-08-Afv"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发布时间:2017-08-17" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wS-Fi-pTa">
+                        <rect key="frame" x="92" y="52" width="200" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="200" id="IEB-lA-9Js"/>
+                            <constraint firstAttribute="height" constant="15" id="d9T-Cp-Jdl"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYT-u3-AS8">
+                        <rect key="frame" x="363" y="52.5" width="62" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="62" id="5t1-vg-47n"/>
+                            <constraint firstAttribute="height" constant="15" id="x0E-n8-h83"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="2wS-Fi-pTa" firstAttribute="leading" secondItem="Nyj-jx-zFd" secondAttribute="trailing" constant="10" id="DV4-TC-G9L"/>
+                    <constraint firstItem="I98-o0-ODB" firstAttribute="leading" secondItem="Nyj-jx-zFd" secondAttribute="trailing" constant="10" id="ERc-PF-I77"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="2wS-Fi-pTa" secondAttribute="bottom" constant="2" id="HJq-sJ-PSK"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="WYT-u3-AS8" secondAttribute="trailing" constant="5" id="KJR-jA-2L7"/>
+                    <constraint firstItem="Nyj-jx-zFd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="L3w-9C-ZqT"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="WYT-u3-AS8" secondAttribute="bottom" constant="1.5" id="cUf-07-rtv"/>
+                    <constraint firstItem="Nyj-jx-zFd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="cqX-eA-QBb"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="I98-o0-ODB" secondAttribute="trailing" constant="10" id="iAe-ir-fuJ"/>
+                    <constraint firstItem="I98-o0-ODB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="p4b-t7-bH5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="InformaZRimgview" destination="Nyj-jx-zFd" id="IX4-fj-gaw"/>
+                <outlet property="InformaZRshenhe" destination="WYT-u3-AS8" id="f0T-NV-CCI"/>
+                <outlet property="InformaZRtime" destination="2wS-Fi-pTa" id="2W4-NV-UbO"/>
+                <outlet property="InformaZRtitle" destination="I98-o0-ODB" id="yiE-1L-Vop"/>
+            </connections>
+            <point key="canvasLocation" x="-591" y="-415"/>
+        </tableViewCell>
+    </objects>
+</document>

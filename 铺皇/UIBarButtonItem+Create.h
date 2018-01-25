@@ -1,0 +1,18 @@
+//
+//  TCAddresSelectViewController.m
+//  铺皇
+//
+//  Created by 中国铺皇 on 2017/4/12.
+//  Copyright © 2017年 中国铺皇. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface UIBarButtonItem (Create)
+
++ (instancetype)barButtonItemWithImage:(NSString *)imageName highImage:(NSString *)highImageName target:(id)target action:(SEL)action;
+
++(instancetype)barButtonItemWithName:(NSString *)titleName highImage:(NSString *)highImageName target:(id)target action:(SEL)action;
+
++ (instancetype)rightbarButtonItemWithImage:(NSString *)imageName highImage:(NSString *)highImageName target:(id)target action:(SEL)action;
+@end

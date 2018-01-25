@@ -1,0 +1,126 @@
+//
+//  Header.pch
+//  铺皇
+//
+//  Created by 中国铺皇 on 2017/4/10.
+//  Copyright © 2017年 中国铺皇. All rights reserved.
+//
+
+#ifndef Header_pch
+#define Header_pch
+#import "Defination.h"                                  //数据连接头文件
+#import "MBProgressHUD.h"                               //HUD提示
+#import "SVProgressHUD.h"
+#import "YJLHUD.h"
+
+#import "UIImageView+WebCache.h"                        //网络图片缓存
+#import "SDWebImageManager.h"                           //网络图片缓存
+#import "AFNetworking.h"                                //网络数据请求
+#import "MJRefresh.h"                                   //刷新控件
+#import "FMDB.h"                                        //FMDB缓存
+#import "UIBarButtonItem+Create.h"                      //导航栏返回按键快捷
+#import <UShareUI/UShareUI.h>                           //友盟分享头文件
+#import "SerachViewController.h"                        //搜索页面
+#import "ScrollHeadView.h"                              //首页滚动图
+#import "DetailedController.h"                          //今日头条的跳转界面
+#import "PlaceholderTextView.h"                         //反馈意见
+#import "PishumToast.h"                                 //导航栏下提醒
+#import "ShoppingBtn.h"                                 //按钮+图片排位
+#import "LEEAlert.h"                                    //客服弹出提示
+#import "SRActionSheet.h"                               //仿微信下方弹出提示
+#import "WYWebProgressLayer.h"                          //网页+加载数据条
+#import <SMS_SDK/SMSSDK.h>                              //短信验证
+#import "Masonry.h"                                     //布局视图类
+#import <LocalAuthentication/LocalAuthentication.h>     //指纹解锁
+
+/*********************8个按钮功能********************/
+#import "JXButton.h"//按钮+图片排位
+#import "ShopssiteViewController.h"                     //商铺选址
+#import "ShopsleaseViewController.h"                    //商铺出租
+#import "ShopsattornViewController.h"                   //商铺转让
+#import "ShopsmapsiteViewController.h"                  //地图选址
+#import "ShopsrecruitViewController.h"                  //商铺招聘
+#import "ShopsserviceViewController.h"                  //开店服务
+
+/******个人中心的*********/
+#import "pershowData.h"     //个人账号密码信息数据库
+#import "personshowmodel.h"
+
+#import "YJLUserDefaults.h"//本地存储统一文件
+#define YJLuser                @"user"               //账号信息
+#define YJLpassword            @"password"           //账号密码
+#define YJLuserid              @"userid"             //账号ID
+#define YJLloginstate          @"loginstate"         //账号登录状态
+#define YJLregisterstate       @"registerstate"      //账号注册状态
+#define YJLEditchange          @"Editchange"         //账号//个人信息跟替
+#define YJLPaymentpassword     @"Paymentpassword"    //个人支付密码
+#define YJLPaymentpasswordopen @"Paymentpasswordopen"//个人支付密码验证
+#define YJLTouchIDneed         @"TouchIDneed"        //是否开启指纹验证
+#define YJLCityname           @"YJLCityname"         //城市名称
+#define YJLCityid             @"YJLCityid"           //城市id
+#define YJLCity_QY             @"YJLCity_QY"          //获取城市区域成功
+
+
+#define kTextBorderColor     RGBCOLOR(227,224,216)
+#define RGBCOLOR(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
+
+//导航栏高度
+#define KDaohang_Height 44
+//状态栏高度
+#define KZhuangtai_Height 20
+
+//获取屏幕高度
+#define KMainScreenHeight [UIScreen mainScreen].bounds.size.height
+//获取屏幕宽度
+#define KMainScreenWidth [UIScreen mainScreen].bounds.size.width
+
+//获取视图的宽度
+#define KViewWidth(a) (a).frame.size.width
+#define KViewHeight(a) (a).frame.size.height
+#define KViewX(a)  (a).frame.orgin.x
+#define KViewY(a)  (a).frame.orgin.y
+
+/**
+ *  判断当前设备是否是iOS7以上
+ */
+#define iOS7 [[[UIDevice currentDevice]systemVersion] floatValue] >= 7.0
+/**
+ *  判断当前设备是否是iOS8以上
+ */
+#define iOS8 [[[UIDevice currentDevice]systemVersion] floatValue] >= 8.0
+/**
+ *  判断当前设备是否是iOS9以上
+ */
+#define iOS9   [[[UIDevice currentDevice]systemVersion] floatValue] >= 9.0
+/**
+ *  判断当前设备是否是iOS10.0以上
+ */
+#define iOS10 [[UIDevice currentDevice].systemVersion doubleValue] >= 10.0
+/**
+ *  判断当前设备是否是iOS11.0以上
+ */
+#define iOS11 [[UIDevice currentDevice].systemVersion doubleValue] >= 11.0
+
+/**
+ *  获取RGB颜色
+ */
+
+#define kTCColor(r, g, b)     [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define kTCColor2(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+
+/**
+ *  获取随机RGB颜色
+ */
+#define random(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0]
+#define randomColor random(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+
+/**
+ *  警告提示框
+ */
+#define Alert(msg) [[[UIAlertView alloc]initWithTitle:@"提示" message:msg delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] show];
+
+//  导航栏颜色变化
+#define BXAlphaColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+
+
+#endif /* Header_pch */
