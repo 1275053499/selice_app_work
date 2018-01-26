@@ -119,6 +119,7 @@
         else{
             
             [self reachabilitydata];
+            NSLog(@"gdshajbdkad");
         }
     }
 }
