@@ -119,7 +119,7 @@
         else{
             
             [self reachabilitydata];
-            NSLog(@"gdshajbdkad");
+            NSLog(@"查看信息输出");
         }
     }
 }
