@@ -119,6 +119,7 @@
         
          NSLog(@"发布  tabBar 获取响应");
     }
+    
     else if (tabBarController.selectedIndex == 2){
         NSLog(@"消息  tabBar 获取响应");
     }
@@ -460,9 +461,8 @@
                         [nav pushViewController:ctl animated:YES];
                     }
                    else{
-                   
+
                        
-                   
                    }
     
                 };
@@ -479,7 +479,6 @@
     NSString *pushToken = [[[token stringByReplacingOccurrencesOfString:@"<"withString:@""]stringByReplacingOccurrencesOfString:@">"withString:@""]stringByReplacingOccurrencesOfString:@" "withString:@""];
     return pushToken;
 }
-
 
 //当用户点击允许或者不允许后，会执行如下代理方法，我们把处理逻辑在其中实现
 -(void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings{
@@ -503,8 +502,6 @@
 //    //调用通知
 //    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
 //}
-
-
 
 
 #pragma mark 分享～～～配置分享应用
@@ -676,6 +673,7 @@
                 break;
                 
             default:{
+                
                     [[NSNotificationCenter defaultCenter] postNotificationName:@"WX_PayFail" object:nil];
             }
                  break;

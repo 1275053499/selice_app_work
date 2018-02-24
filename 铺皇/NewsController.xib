@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -33,23 +33,20 @@
                         </imageView>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mcr-2U-7Um">
                             <rect key="frame" x="10" y="65" width="355" height="597"/>
-                            <string key="text">    铺皇（控股）集团是一家互联网商铺服务企业，旗下拥有中国铺王网、铺皇网 两大平台，秉承“为全国生意人保驾护航”的理念，9年来专注为商家实现 “低成本、智能化”的电子商务化产品服务，降低商家 “互联网+”门槛，倡导技术为核心，产品为导向，平台为基础，服务为价值，客户为根本的理念，创建 “服务第一”、加盟商一站式产品服务平台，经过十多年来的技术产品研发及上千家全国服务渠道体系的构建，实现对数千万商家的全面服务。 
-      2008年3月，开始切入企业服务领域，集团前身为中国铺王网。
+                            <mutableString key="text">  铺皇（控股）集团是一家互联网商铺服务企业，旗下铺皇平台，秉承“为全国生意人保驾护航”的理念，9年来专注为商家实现 “低成本、智能化”的电子商务化产品服务，降低商家 “互联网+”门槛，倡导技术为核心，产品为导向，平台为基础，服务为价值，客户为根本的理念，创建 “服务第一”、加盟商一站式产品服务平台，经过十多年来的技术产品研发及上千家全国服务渠道体系的构建，实现对数千万商家的全面服务。 
+      2008年3月，开始切入企业服务领域。
       2010年2月，提出企业一站式服务平台的理念。
       2010年8月，正式开始一站式企业服务产品的研发。
       2014年5月，全面实践企业“互联网+”一站式服务产品平台的应用推广。
-      2015年8月，企业互联网+一站式服务平台中国铺王网正式上线运营.铺皇雏形诞生，开始筹划落实铺皇平台建设，组建技术团队。
-      2016年1月，铺皇集团与贵州、宁夏、内蒙古、四川等省市中小企业服务中心达成战略合作关系，共建企业互联网电子商务化平台。
-
+      2015年8月，企业互联网+一站式服务平台，正式上线运营.铺皇雏形诞生，开始筹划落实铺皇平台建设，组建技术团队。
+      2016年1月，铺皇集团与贵州、宁夏、内蒙古、四川等省市中小企业服务中心达成战略合作关系，共建企业互联网电子商务化平台。                           
+      2017年，深圳市铺皇电子商务有限公司正式挂牌成立，并推出铺皇app移动端产品。
    铺皇集团企业文化: 
                  愿景：成为电子商务信息服务行业龙头企业。
-		  宗旨：服务第一，勇创奇迹。
+                 宗旨：服务第一，勇创奇迹。
                  核心价值观：让客户满意，领导放心，员工开心。
-		  精神：激情，创新，协作，共赢。
-   公司地址：
-		深圳龙华总部：龙华新区民治东环一路良基大厦5楼520
-		深圳西乡分部：宝安区西乡共和工业路国汇通商务中心502（附近公交站台：西乡客运站，金港华庭）
-		  广州分公司地址：广东省广州市白云区增槎路787号睿晟国际503A</string>
+                 精神：激情，创新，协作，共赢。
+                 公司地址：深圳市龙华新区东环一路油松科技大厦503A</mutableString>
                             <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -86,7 +83,7 @@
                 <constraint firstAttribute="trailing" secondItem="Tsq-h6-hgD" secondAttribute="trailing" id="cDt-Z1-v57"/>
                 <constraint firstItem="Tsq-h6-hgD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mYb-eI-B0E"/>
             </constraints>
-            <point key="canvasLocation" x="28" y="-1481"/>
+            <point key="canvasLocation" x="89" y="-1620"/>
         </view>
     </objects>
     <resources>

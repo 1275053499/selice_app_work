@@ -30,8 +30,7 @@
     UIScrollView            *Mainscrollow;              //主背景控件
     AVPlayerViewController  *YJLPlayer;                 //视频控件
     
-     DCTitleRolling  * TTRollingview;/* 头条 */
-
+    DCTitleRolling          *TTRollingview;/* 头条 */
 }
 
 @property (nonatomic,strong)  NSString   * maincityName;    //存储定位获取的城市名称
@@ -43,56 +42,56 @@
 @property (nonatomic,assign) NSInteger        page;
 @property (nonatomic,strong) NSTimer         *timer;
 
-@property (nonatomic,strong)UIView *HeaderView;       //头部
-@property (nonatomic,strong)UIView *TwoHeaderview;     //6个按钮
+@property (nonatomic,strong) UIView *HeaderView;       //头部
+@property (nonatomic,strong) UIView *TwoHeaderview;     //6个按钮
 
-@property (nonatomic,strong)UIView  *NewView;           //大数据view1
-@property (nonatomic,strong)UIView  *AgoView;           //大数据view2
-@property (nonatomic,strong)UIView  *SettledView;       //大数据view3
-@property (nonatomic,strong)UILabel *biglab;            //大数据lab
-@property (nonatomic,strong)UIImageView *bigimgview;     //大数据图片
-@property (nonatomic,strong)UILabel *Newlab;            //大数据lab1
-@property (nonatomic,strong)UILabel *Agolab;            //大数据lab2
-@property (nonatomic,strong)UILabel *Settlelab;         //大数据lab3
+@property (nonatomic,strong) UIView  *NewView;           //大数据view1
+@property (nonatomic,strong) UIView  *AgoView;           //大数据view2
+@property (nonatomic,strong) UIView  *SettledView;       //大数据view3
+@property (nonatomic,strong) UILabel *biglab;            //大数据lab
+@property (nonatomic,strong) UIImageView *bigimgview;     //大数据图片
+@property (nonatomic,strong) UILabel *Newlab;            //大数据lab1
+@property (nonatomic,strong) UILabel *Agolab;            //大数据lab2
+@property (nonatomic,strong) UILabel *Settlelab;         //大数据lab3
 
-@property (nonatomic,strong)UIView  *Dayview;           //今日头条
+@property (nonatomic,strong) UIView  *Dayview;           //今日头条
 
-@property (nonatomic,strong)UILabel *choicelab;         //精选开店
-@property (nonatomic,strong)UIView  *JXview_1;          //区域
-@property (nonatomic,strong)UIView  *JXview_2;          //租金
-@property (nonatomic,strong)UIView  *JXview_3;          //低价
-@property (nonatomic,strong)UIView  *JXview_4;          //面积
+@property (nonatomic,strong) UILabel *choicelab;         //精选开店
+@property (nonatomic,strong) UIView  *JXview_1;          //区域
+@property (nonatomic,strong) UIView  *JXview_2;          //租金
+@property (nonatomic,strong) UIView  *JXview_3;          //低价
+@property (nonatomic,strong) UIView  *JXview_4;          //面积
 
-@property (nonatomic,strong)UIImageView     *recommendImgView;  //推荐店铺banner
-@property (nonatomic,strong)UIView          *recreationView;    //娱乐类
-@property (nonatomic,strong)UIView          *lifeView;          //生活类
-@property (nonatomic,strong)UIView          *departmentView;    //百货类
-@property (nonatomic,strong)UIView          *ZXcaseView;        //最新案例
+@property (nonatomic,strong) UIImageView     *recommendImgView;  //推荐店铺banner
+@property (nonatomic,strong) UIView          *recreationView;    //娱乐类
+@property (nonatomic,strong) UIView          *lifeView;          //生活类
+@property (nonatomic,strong) UIView          *departmentView;    //百货类
+@property (nonatomic,strong) UIView          *ZXcaseView;        //最新案例
 
-@property (nonatomic, strong)ShoppingBtn    * casebtnButtom;    //案例无数据按钮图片
-@property (nonatomic, strong)ShoppingBtn    * yulebtnButtom;    //娱乐无数据按钮图片
-@property (nonatomic, strong)ShoppingBtn    * shuobtnButtom;    //生活无数据按钮图片
-@property (nonatomic, strong)ShoppingBtn    * bhuobtnButtom;    //百货无数据按钮图片
+@property (nonatomic, strong) ShoppingBtn    * casebtnButtom;    //案例无数据按钮图片
+@property (nonatomic, strong) ShoppingBtn    * yulebtnButtom;    //娱乐无数据按钮图片
+@property (nonatomic, strong) ShoppingBtn    * shuobtnButtom;    //生活无数据按钮图片
+@property (nonatomic, strong) ShoppingBtn    * bhuobtnButtom;    //百货无数据按钮图片
 
-@property (nonatomic,strong)UIView          *VideoView;         //推荐视频
-@property (nonatomic,strong)UIView          *BottomView;        //底部到底提示语
+@property (nonatomic,strong) UIView          *VideoView;         //推荐视频
+@property (nonatomic,strong) UIView          *BottomView;        //底部到底提示语
 
-@property (nonatomic,strong)NSMutableArray  *Videodataimages;       //推荐视频图片数据源
-@property (nonatomic,strong)NSMutableArray  *Videodatatitles;       //推荐视频标题数据源
-@property (nonatomic,strong)NSMutableArray  *Videodatatimes;        //推荐视频时间数据源
-@property (nonatomic,strong)NSMutableArray  *Videodatawebs;         //推荐视频地址数据源
+@property (nonatomic,strong) NSMutableArray  *Videodataimages;       //推荐视频图片数据源
+@property (nonatomic,strong) NSMutableArray  *Videodatatitles;       //推荐视频标题数据源
+@property (nonatomic,strong) NSMutableArray  *Videodatatimes;        //推荐视频时间数据源
+@property (nonatomic,strong) NSMutableArray  *Videodatawebs;         //推荐视频地址数据源
 
 /** 导航条View */
 @property (nonatomic , strong)  UIView              * NavView;
 @property (nonatomic , strong)  CLLocationManager   * locManager;       //获取用户位置
 @property (nonatomic , strong)  CLGeocoder          * geocoder;         //反地理编码
 
-@property(nonatomic,strong)NSMutableArray  * PHArr_Today;       //头条存储数据
-@property(nonatomic,strong)NSMutableArray  * PHArr_case;        //案例存储数据
-@property(nonatomic,strong)NSMutableArray  * PHArr_recreation;  //推荐娱乐类存储数据
-@property(nonatomic,strong)NSMutableArray  * PHArr_life;        //推荐生活类存储数据
-@property(nonatomic,strong)NSMutableArray  * PHArr_department;  //推荐百货类存储数据
-@property(nonatomic,strong)NSMutableArray  * PHArr_video;       //视频存储数据
+@property(nonatomic,strong) NSMutableArray  * PHArr_Today;       //头条存储数据
+@property(nonatomic,strong) NSMutableArray  * PHArr_case;        //案例存储数据
+@property(nonatomic,strong) NSMutableArray  * PHArr_recreation;  //推荐娱乐类存储数据
+@property(nonatomic,strong) NSMutableArray  * PHArr_life;        //推荐生活类存储数据
+@property(nonatomic,strong) NSMutableArray  * PHArr_department;  //推荐百货类存储数据
+@property(nonatomic,strong) NSMutableArray  * PHArr_video;       //视频存储数据
 
 @property (nonatomic, assign) NSInteger lastSelectedIndex;
 
@@ -199,8 +198,13 @@
 
     // 记录这一次选中的索引
     self.lastSelectedIndex = self.tabBarController.selectedIndex;
+//    NSLog(@"%ld",self.lastSelectedIndex);
     
     [[NSUserDefaults standardUserDefaults]setObject:[NSString stringWithFormat:@"%ld",self.lastSelectedIndex] forKey:@"PUSHNUMBER"];
+    if (self.lastSelectedIndex == 0) {
+        NSLog(@"首页需要刷新了哦");
+    }
+    
 }
 
 - (BOOL)isShowingOnKeyWindow{

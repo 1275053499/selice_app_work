@@ -37,18 +37,19 @@
    [self.view addSubview:_GZHTopView];
     
     UILabel * companyname = [[UILabel alloc]initWithFrame:CGRectMake(0, 10, KMainScreenWidth, 20)];
-    companyname.text = @"深圳市铺王电子商务信息有限公司";
+    companyname.text = @"深圳市铺皇电子商务信息有限公司";
     companyname.textAlignment       =  NSTextAlignmentCenter;
-    companyname.font                =  [UIFont systemFontOfSize:16.0f];
+    companyname.font                =  [UIFont systemFontOfSize:18.0f];
     [_GZHTopView addSubview:companyname];
 
     UILabel * other = [[UILabel alloc]initWithFrame:CGRectMake(20, 35, KMainScreenWidth, 99)];
-    other.text = @"商务合作:chinapuhuang@126.com\n公司地址:\n        龙华总公司:龙华新区民治东环一路良基大厦5楼520\n        西乡分公司:宝安区西乡共和工业路国汇通商务中心502\n        广州分公司:广州市白云区增槎路787号睿晟国际503A\n商务联系:15994741808(卢总)";
+    other.text = @"公司地址:深圳市龙华新区东环一路油松科技大厦503A\n商务联系:15994741808(卢总)\n商务合作:chinapuhuang@163.com\n客服联系:0755-23212184";
     other.textColor          = kTCColor(161, 161, 161);
     other.textAlignment      = NSTextAlignmentLeft;
     other.numberOfLines      = 0;
-    other.font               = [UIFont systemFontOfSize:12.0f];
+    other.font               = [UIFont systemFontOfSize:14.0f];
     [_GZHTopView addSubview:other];
+    
     #pragma  -mark 铺皇网
 //    图片
     _GZHimgViewTop = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"铺皇网@2x"]];

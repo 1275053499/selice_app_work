@@ -524,6 +524,7 @@
         URL= [NSString stringWithFormat:@"%@?subid=%@&uid=%@",Hostrecruitpath,_shopsubid,[[YJLUserDefaults shareObjet]getObjectformKey:YJLuserid]];
 //        NSLog(@"登录店铺详情入境：%@",URL);
     }else{
+        
         URL = [NSString stringWithFormat:@"%@?subid=%@",Hostrecruitpath,_shopsubid];
 //        NSLog(@"未登录店铺详情入境：%@",URL);
     }
@@ -559,8 +560,10 @@
             [self creatPHZP];
 #pragma  -mark 根据不同进入的界面创建不同的按钮
             [self creatPHwhere];
-           
+
+            [YJLHUD dismissWithDelay:1];
         }else{
+            
             NSLog(@"300--拿不到数据啊");
             [YJLHUD showErrorWithmessage:@"没有更多数据"];
             [YJLHUD dismissWithDelay:1];

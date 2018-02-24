@@ -259,7 +259,7 @@
     
     self.TELbtn = [UIButton buttonWithType:UIButtonTypeCustom];
 //    self.TELbtn.backgroundColor  = [UIColor cyanColor];
-    [self.TELbtn setTitle:@"客服电话：0755-23212184" forState:UIControlStateNormal];
+    [self.TELbtn setTitle:@"客服电话:0755-23212184" forState:UIControlStateNormal];
     [self.TELbtn setTitleColor:[UIColor redColor]forState:UIControlStateNormal];
     [self.TELbtn addTarget:self action:@selector(phone:) forControlEvents:UIControlEventTouchUpInside];
     [self.Mainscrollview addSubview:self.TELbtn];
@@ -271,7 +271,7 @@
     
 #pragma -mark 底部2
     self.company                  = [[UILabel alloc]init];
-    self.company.text             = @"深圳市铺王电子商务有限公司\nCopyright © 2008-2017";
+    self.company.text             = @"深圳市铺皇电子商务信息有限公司\nCopyright © 2008-2017";
     self.company.textAlignment    = NSTextAlignmentCenter;
 //    self.company.backgroundColor  = [UIColor cyanColor];
     self.company.font             = [UIFont systemFontOfSize:14.0f];

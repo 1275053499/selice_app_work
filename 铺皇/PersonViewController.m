@@ -743,7 +743,7 @@
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
     
     //创建网页内容对象  主标题+副标题+图片
-    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"中国铺王网竭诚为您服务" descr:@"用心办事，让客户满意" thumImage:[UIImage imageNamed:@"Applogo"]];
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"铺皇竭诚为您服务" descr:@"用心办事，让客户满意" thumImage:[UIImage imageNamed:@"Applogo"]];
     
     //设置网页地址 放置店铺URL
     shareObject.webpageUrl = [NSString stringWithFormat:@"https://itunes.apple.com/us/app/%@/id1315260303?l=zh&ls=1&mt=8",[@"铺皇" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]]; //@" https://itunes.apple.com/us/app/铺皇/id1315260303?l=zh&ls=1&mt=8";
