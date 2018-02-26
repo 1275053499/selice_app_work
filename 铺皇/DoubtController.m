@@ -294,7 +294,7 @@
 //返回索引数组
 -(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView{
     
-    NSMutableArray *arr=[[NSMutableArray alloc]init];
+    NSMutableArray *arr = [[NSMutableArray alloc]init];
     arr = [[NSMutableArray alloc]initWithObjects:@"热门",@"转让",@"上线",@"售后",@"品牌",@"产品",@"支付",@"其它",nil];
     return arr;
 }

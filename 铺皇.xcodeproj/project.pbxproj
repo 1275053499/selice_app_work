@@ -478,6 +478,7 @@
 		44542BDA1FCFF843008E0901 /* 铺皇app宣传ALL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44542BD81FCFF843008E0901 /* 铺皇app宣传ALL@2x.png */; };
 		44562DD81F4C334700C156C5 /* ZRdataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 44562DD71F4C334700C156C5 /* ZRdataBase.m */; };
 		44578ECD1EE9287300AA75CE /* DOPDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 44578ECB1EE9287300AA75CE /* DOPDropDownMenu.m */; };
+		445A02822043BA31001C8DA6 /* ReleaseCZController.m in Sources */ = {isa = PBXBuildFile; fileRef = 445A02812043BA31001C8DA6 /* ReleaseCZController.m */; };
 		4464B48D1FB00B300095C381 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4464B4881FB00B2F0095C381 /* libWeChatSDK.a */; };
 		4464B4AF1FB041660095C381 /* getIPhoneIP.m in Sources */ = {isa = PBXBuildFile; fileRef = 4464B4AE1FB041660095C381 /* getIPhoneIP.m */; };
 		4464B4B21FB0417D0095C381 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4464B4B11FB0417D0095C381 /* XMLDictionary.m */; };
@@ -1577,6 +1578,8 @@
 		44562DD71F4C334700C156C5 /* ZRdataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRdataBase.m; sourceTree = "<group>"; };
 		44578ECA1EE9287300AA75CE /* DOPDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPDropDownMenu.h; sourceTree = "<group>"; };
 		44578ECB1EE9287300AA75CE /* DOPDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPDropDownMenu.m; sourceTree = "<group>"; };
+		445A02802043BA31001C8DA6 /* ReleaseCZController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReleaseCZController.h; sourceTree = "<group>"; };
+		445A02812043BA31001C8DA6 /* ReleaseCZController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReleaseCZController.m; sourceTree = "<group>"; };
 		4464B4881FB00B2F0095C381 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWeChatSDK.a; path = "微信支付SDK/libWeChatSDK.a"; sourceTree = "<group>"; };
 		4464B4891FB00B2F0095C381 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WXApiObject.h; path = "微信支付SDK/WXApiObject.h"; sourceTree = "<group>"; };
 		4464B48A1FB00B2F0095C381 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WechatAuthSDK.h; path = "微信支付SDK/WechatAuthSDK.h"; sourceTree = "<group>"; };
@@ -3990,6 +3993,15 @@
 			name = "招聘选项卡";
 			sourceTree = "<group>";
 		};
+		445A027F2043B9FF001C8DA6 /* 出租发布 */ = {
+			isa = PBXGroup;
+			children = (
+				445A02802043BA31001C8DA6 /* ReleaseCZController.h */,
+				445A02812043BA31001C8DA6 /* ReleaseCZController.m */,
+			);
+			name = "出租发布";
+			sourceTree = "<group>";
+		};
 		446C6ADC20085E2600B59109 /* SVProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -6081,6 +6093,7 @@
 		5E7543D31E9B6A3B00E97750 /* 铺皇发布 */ = {
 			isa = PBXGroup;
 			children = (
+				445A027F2043B9FF001C8DA6 /* 出租发布 */,
 				44F7D85E1EEBE46C00D69347 /* mainController */,
 				44FE6EA21EC59A51000E27F5 /* 招聘中心 */,
 				44FE6EA11EC59A46000E27F5 /* 选址发布 */,
@@ -7294,6 +7307,7 @@
 				4480E25C1ECC328C0070D6F3 /* MKAnnotationView+WebCache.m in Sources */,
 				5EFC9C8A1EA0E5F30085781B /* JXButton.m in Sources */,
 				44EB37351F07718A00601F22 /* WebsetController.m in Sources */,
+				445A02822043BA31001C8DA6 /* ReleaseCZController.m in Sources */,
 				4448CE8A1FC6E89D0077A408 /* CustomBtn.m in Sources */,
 				44C47EBA1ED590B0008334F7 /* ZRaddessController.m in Sources */,
 				44195A9E1F710BD200BDB46D /* Bigshopdata.m in Sources */,

@@ -420,7 +420,7 @@
     [self.HeaderView addSubview:yjlmenu];
     
     self.Fold = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.Fold setTitle:@"惊喜在这里哦" forState:UIControlStateNormal];
+    [self.Fold setTitle:@"返回查看" forState:UIControlStateNormal];
     [self.Fold setTitleColor:[UIColor redColor]forState:UIControlStateNormal];
     [self.Fold addTarget:self action:@selector(Fold:) forControlEvents:UIControlEventTouchUpInside];
     [self.HeaderView addSubview:self.Fold];

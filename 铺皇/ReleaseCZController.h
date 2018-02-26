@@ -1,9 +1,9 @@
 //
-//  ReleaseZRController.h
+//  ReleaseCZController.h
 //  铺皇
 //
-//  Created by 铺皇网 on 2017/5/12.
-//  Copyright © 2017年 中国铺皇. All rights reserved.
+//  Created by selice on 2018/2/26.
+//  Copyright © 2018年 中国铺皇. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -35,7 +35,8 @@
 
 #import "PopviewCell.h"
 #import "Popmodel.h"
-@interface ReleaseZRController : UIViewController{
+
+@interface ReleaseCZController : UIViewController{
     NSMutableArray *cellArray;
 }
 

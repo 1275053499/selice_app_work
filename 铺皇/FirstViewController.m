@@ -204,7 +204,6 @@
     if (self.lastSelectedIndex == 0) {
         NSLog(@"首页需要刷新了哦");
     }
-    
 }
 
 - (BOOL)isShowingOnKeyWindow{

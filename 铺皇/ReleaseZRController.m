@@ -549,7 +549,12 @@
     _ZRtransfer.textAlignment       = NSTextAlignmentRight;
     _ZRtransfer.clearButtonMode     = UITextFieldViewModeWhileEditing;
     _ZRtransfer.keyboardType        = UIKeyboardTypeNumberPad;
-    _ZRtransfer.placeholder         = @"转让费用";
+    if ([self.Navtitle isEqualToString:@"发布转让"]){
+        _ZRtransfer.placeholder         = @"转让费用";
+    }else{
+        _ZRtransfer.placeholder         = @"店铺押金";
+    }
+    
     _ZRtransfer.font                = [UIFont systemFontOfSize:12.0];
     _ZRtransfer.delegate            = self;
     _ZRtransfer.textColor           = [UIColor colorWithRed:77/255.0 green:166/255.0 blue:214/255.0 alpha:1.0];
@@ -1011,7 +1016,12 @@ else{
                 break;
                 //         列1
             case 1:{
-                cell.textLabel.text=@"转让费用";
+                if ([self.Navtitle isEqualToString:@"发布转让"]){
+                    cell.textLabel.text=@"转让费用";
+                }else{
+                     cell.textLabel.text=@"店铺押金";
+                }
+                
                 cell.accessoryView = _ZRtransfer;
             }
                 break;
@@ -1184,7 +1194,7 @@ else{
                     //         列1
                 case 1:{
                     
-                    NSLog(@"转让费用");
+                    
                     NSLog(@"%@",cell.textLabel.text);
 #pragma mark - block传值 转让费用
                     

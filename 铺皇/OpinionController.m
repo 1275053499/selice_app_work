@@ -518,6 +518,8 @@
 //button的frame
 -(void)viewWillAppear:(BOOL)animated{
     
+    [super viewWillAppear:animated];
+    
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
     if (self.photoArrayM.count < 5) {
@@ -531,6 +533,7 @@
         self.photoBtn.frame = CGRectMake(0, 0, 0, 0);
     }
 }
+
 
 - (void)viewWillDisappear:(BOOL)animated {
     
