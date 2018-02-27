@@ -10,6 +10,7 @@
 #import "ReleaseXZController.h"//选址
 #import "ReleaseZRController.h"//转让
 #import "ReleaseZSController.h"//招聘
+#import "ReleaseCZController.h"//出租
 
 #define BXAlphaColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
 @interface SecondViewController ()<UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate>{
@@ -170,7 +171,7 @@
             
                 if ([self.NSloginstate isEqualToString:@"loginyes"]){
                     self.hidesBottomBarWhenPushed = YES;//如果在push跳转时需要隐藏tabBar
-                    ReleaseZRController *ctl = [[ReleaseZRController alloc]init];
+                    ReleaseCZController *ctl = [[ReleaseCZController alloc]init];
                     ctl.Navtitle = @"发布出租";
                     [self.navigationController pushViewController:ctl animated:YES];
                      self.hidesBottomBarWhenPushed = NO;//1.并在push后设置self.hidesBottomBarWhenPushed=NO;2.这样back回来的时候，tabBar会恢复正常显示。
@@ -220,8 +221,6 @@
                     [alertController addAction:cancelAction];
                     [self presentViewController:alertController animated:YES completion:nil];
                 }
-                
-               
             }
                 break;
             default:{

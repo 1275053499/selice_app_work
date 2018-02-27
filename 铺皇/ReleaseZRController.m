@@ -113,6 +113,7 @@
     
     return NO;
 }
+
 - (void)viewDidLoad{
     [super viewDidLoad];
     
@@ -207,11 +208,11 @@
                      }  completion:^(BOOL finished) {
                          //动画执行完毕后的操作
                          
-                         if ([self.Navtitle isEqualToString:@"发布转让"]){
+//                         if ([self.Navtitle isEqualToString:@"发布转让"]){
                               [self loadZRData];
-                         }else{
-                              [self loadCZData];
-                         }
+//                         }else{
+//                              [self loadCZData];
+//                         }
                          [self refresh];
                      }];
 }
@@ -258,7 +259,7 @@
     
 #pragma  -mark下拉刷新获取网络数据
     
-    if ([self.Navtitle isEqualToString:@"发布转让"]){
+//    if ([self.Navtitle isEqualToString:@"发布转让"]){
          MJRefreshNormalHeader *header           = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadZRData)];
         // Set title
         [header setTitle:@"铺小皇来开场了" forState:MJRefreshStateIdle];
@@ -271,21 +272,22 @@
         header.stateLabel.textColor             = kTCColor(161, 161, 161);
         header.lastUpdatedTimeLabel.textColor   = kTCColor(161, 161, 161);
         self.FBtableView.mj_header  = header;
-    }
-    else{
-        MJRefreshNormalHeader *header           = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadCZData)];
-        // Set title
-        [header setTitle:@"铺小皇来开场了" forState:MJRefreshStateIdle];
-        [header setTitle:@"铺小皇要回家了" forState:MJRefreshStatePulling];
-        [header setTitle:@"铺小皇来更新了" forState:MJRefreshStateRefreshing];
-        // Set font
-        header.stateLabel.font = [UIFont systemFontOfSize:15];
-        header.lastUpdatedTimeLabel.font        = [UIFont systemFontOfSize:14];
-        // Set textColor
-        header.stateLabel.textColor             = kTCColor(161, 161, 161);
-        header.lastUpdatedTimeLabel.textColor   = kTCColor(161, 161, 161);
-        self.FBtableView.mj_header  = header;
-    }
+//    }
+//    else{
+//
+//        MJRefreshNormalHeader *header           = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadCZData)];
+//        // Set title
+//        [header setTitle:@"铺小皇来开场了" forState:MJRefreshStateIdle];
+//        [header setTitle:@"铺小皇要回家了" forState:MJRefreshStatePulling];
+//        [header setTitle:@"铺小皇来更新了" forState:MJRefreshStateRefreshing];
+//        // Set font
+//        header.stateLabel.font = [UIFont systemFontOfSize:15];
+//        header.lastUpdatedTimeLabel.font        = [UIFont systemFontOfSize:14];
+//        // Set textColor
+//        header.stateLabel.textColor             = kTCColor(161, 161, 161);
+//        header.lastUpdatedTimeLabel.textColor   = kTCColor(161, 161, 161);
+//        self.FBtableView.mj_header  = header;
+//    }
 }
 
 #pragma -mark 加载转让套餐数据看看
@@ -382,98 +384,98 @@
     }];
 }
 
-#pragma -mark 加载出租套餐数据看看
--(void)loadCZData{
-    
-     [YJLHUD showMyselfBackgroundColor:nil ForegroundColor:nil BackgroundLayerColor:nil message:@"查询套餐中...."];
-    NSLog(@"加载数据中.....");
-    AFHTTPSessionManager *manager       = [AFHTTPSessionManager manager];
-    manager.responseSerializer          = [AFJSONResponseSerializer serializer];
-    manager.requestSerializer.timeoutInterval = 10.0;
-    NSDictionary *params =  @{
-                                  @"id":[[YJLUserDefaults shareObjet]getObjectformKey:YJLuserid]
-                              };
-    [manager GET:Myserviceczbagpath parameters:params success:^(NSURLSessionDataTask *task, id responseObject){
-        
-        NSLog(@"请求成功咧");
-        NSLog(@"数据:%@", responseObject[@"data"]);
-        
-        if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]){
-            NSLog(@"可以拿到数据的");
-            [_PopArr removeAllObjects];
-            [YJLHUD showSuccessWithmessage:@"查询成功"];
-            [YJLHUD dismissWithDelay:.5];
-            for (NSDictionary *dic in responseObject[@"data"]){
-                
-                Popmodel *model = [[Popmodel alloc]init];
-                model.service1               = dic[@"home_times"];
-                model.service2               = dic[@"map_times"];
-                model.servicetime            = dic[@"time"];
-                model.serviceid              = dic[@"id"];
-                
-                if ([dic[@"home_times"] isEqualToString:@"0"]&&[dic[@"display_times"] isEqualToString:@"0"]) {
-                    NSLog(@"有空数据");
-                }
-                
-                else{
-                    
-                    [model setValuesForKeysWithDictionary:dic];
-                    [_PopArr addObject:model];
-                }
-                
-            }
-            
-//            NSLog(@" 加载后现在总请求到数据有%ld个",_PopArr.count);
-            [self.BGlab setHidden:YES];
-        }
-        
-        else{
-            
-            //code 401
-            NSLog(@"不可以拿到数据的");
-            [self.BGlab setHidden:NO];
-            self.BGlab.text = @"未购买过套餐～";
-            
-            [YJLHUD showErrorWithmessage:@"未购买过套餐～"];
-            [YJLHUD dismissWithDelay:.5];
-            
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"提示"] message:@"是否需要购买套餐" preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction *commitAction = [UIAlertAction actionWithTitle:@"购买" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    self.hidesBottomBarWhenPushed = YES;//如果在push跳转时需要隐藏tabBar
-                    RenttaocanController *ctl =[[RenttaocanController alloc]init];//套餐页面
-                    [self.navigationController pushViewController:ctl animated:YES];
-                     self.hidesBottomBarWhenPushed = YES;//1.并在push后设置self.hidesBottomBarWhenPushed=YES;2.这样back回来的时候，tabBar不会会恢复正常显示。
-                    
-                });
-                
-            }];
-            
-            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
-                
-                NSLog(@"取消");
-            }];
-            
-            [alertController addAction:commitAction];
-            [alertController addAction:cancelAction];
-            [self presentViewController:alertController animated:YES completion:nil];
-        }
-        
-        [self.FBtableView reloadData];
-        [self.FBtableView.mj_header endRefreshing];//停止刷新
-        
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"请求数据失败----%@",error);
-        self.BGlab.text = @"网络连接错误";
-        [self.BGlab setHighlighted:NO];
-        [self.FBtableView.mj_header endRefreshing];//停止刷新
-        [YJLHUD showErrorWithmessage:@"网络数据连接出现问题了,请检查一下"];
-        [YJLHUD dismissWithDelay:1];
-    }];
-}
+//#pragma -mark 加载出租套餐数据看看
+//-(void)loadCZData{
+//
+//     [YJLHUD showMyselfBackgroundColor:nil ForegroundColor:nil BackgroundLayerColor:nil message:@"查询套餐中...."];
+//    NSLog(@"加载数据中.....");
+//    AFHTTPSessionManager *manager       = [AFHTTPSessionManager manager];
+//    manager.responseSerializer          = [AFJSONResponseSerializer serializer];
+//    manager.requestSerializer.timeoutInterval = 10.0;
+//    NSDictionary *params =  @{
+//                                  @"id":[[YJLUserDefaults shareObjet]getObjectformKey:YJLuserid]
+//                              };
+//    [manager GET:Myserviceczbagpath parameters:params success:^(NSURLSessionDataTask *task, id responseObject){
+//
+//        NSLog(@"请求成功咧");
+//        NSLog(@"数据:%@", responseObject[@"data"]);
+//
+//        if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]){
+//            NSLog(@"可以拿到数据的");
+//            [_PopArr removeAllObjects];
+//            [YJLHUD showSuccessWithmessage:@"查询成功"];
+//            [YJLHUD dismissWithDelay:.5];
+//            for (NSDictionary *dic in responseObject[@"data"]){
+//
+//                Popmodel *model = [[Popmodel alloc]init];
+//                model.service1               = dic[@"home_times"];
+//                model.service2               = dic[@"map_times"];
+//                model.servicetime            = dic[@"time"];
+//                model.serviceid              = dic[@"id"];
+//
+//                if ([dic[@"home_times"] isEqualToString:@"0"]&&[dic[@"display_times"] isEqualToString:@"0"]) {
+//                    NSLog(@"有空数据");
+//                }
+//
+//                else{
+//
+//                    [model setValuesForKeysWithDictionary:dic];
+//                    [_PopArr addObject:model];
+//                }
+//
+//            }
+//
+////            NSLog(@" 加载后现在总请求到数据有%ld个",_PopArr.count);
+//            [self.BGlab setHidden:YES];
+//        }
+//
+//        else{
+//
+//            //code 401
+//            NSLog(@"不可以拿到数据的");
+//            [self.BGlab setHidden:NO];
+//            self.BGlab.text = @"未购买过套餐～";
+//
+//            [YJLHUD showErrorWithmessage:@"未购买过套餐～"];
+//            [YJLHUD dismissWithDelay:.5];
+//
+//            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"提示"] message:@"是否需要购买套餐" preferredStyle:UIAlertControllerStyleAlert];
+//
+//            UIAlertAction *commitAction = [UIAlertAction actionWithTitle:@"购买" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
+//
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    self.hidesBottomBarWhenPushed = YES;//如果在push跳转时需要隐藏tabBar
+//                    RenttaocanController *ctl =[[RenttaocanController alloc]init];//套餐页面
+//                    [self.navigationController pushViewController:ctl animated:YES];
+//                     self.hidesBottomBarWhenPushed = YES;//1.并在push后设置self.hidesBottomBarWhenPushed=YES;2.这样back回来的时候，tabBar不会会恢复正常显示。
+//
+//                });
+//
+//            }];
+//
+//            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
+//
+//                NSLog(@"取消");
+//            }];
+//
+//            [alertController addAction:commitAction];
+//            [alertController addAction:cancelAction];
+//            [self presentViewController:alertController animated:YES completion:nil];
+//        }
+//
+//        [self.FBtableView reloadData];
+//        [self.FBtableView.mj_header endRefreshing];//停止刷新
+//
+//
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        NSLog(@"请求数据失败----%@",error);
+//        self.BGlab.text = @"网络连接错误";
+//        [self.BGlab setHighlighted:NO];
+//        [self.FBtableView.mj_header endRefreshing];//停止刷新
+//        [YJLHUD showErrorWithmessage:@"网络数据连接出现问题了,请检查一下"];
+//        [YJLHUD dismissWithDelay:1];
+//    }];
+//}
 
 
 -(void)ceatNoti{
@@ -509,6 +511,7 @@
 }
 
 -(void)CreatBase{
+    
     self.view.backgroundColor   = [UIColor whiteColor];
     self.title               = self.Navtitle;
     _selectedPhotos             = [NSMutableArray array];
@@ -549,11 +552,11 @@
     _ZRtransfer.textAlignment       = NSTextAlignmentRight;
     _ZRtransfer.clearButtonMode     = UITextFieldViewModeWhileEditing;
     _ZRtransfer.keyboardType        = UIKeyboardTypeNumberPad;
-    if ([self.Navtitle isEqualToString:@"发布转让"]){
+//    if ([self.Navtitle isEqualToString:@"发布转让"]){
         _ZRtransfer.placeholder         = @"转让费用";
-    }else{
-        _ZRtransfer.placeholder         = @"店铺押金";
-    }
+//    }else{
+//        _ZRtransfer.placeholder         = @"店铺押金";
+//    }
     
     _ZRtransfer.font                = [UIFont systemFontOfSize:12.0];
     _ZRtransfer.delegate            = self;
@@ -864,8 +867,7 @@
     
     [_Headerview addSubview:_collectionView];
     [_collectionView registerClass:[TZTestCell class] forCellWithReuseIdentifier:@"TZTestCell"];
-    
-    
+
 }
 
 #pragma -mark 段头文字
@@ -986,6 +988,7 @@ else{
         cell.serviceTime.text      = [NSString stringWithFormat:@"%@",model.servicetime];
         return cell;
     }
+    
     else{
             UITableViewCell *cell =  [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     if (indexPath.section == 0) {
@@ -1016,12 +1019,11 @@ else{
                 break;
                 //         列1
             case 1:{
-                if ([self.Navtitle isEqualToString:@"发布转让"]){
+//                if ([self.Navtitle isEqualToString:@"发布转让"]){
                     cell.textLabel.text=@"转让费用";
-                }else{
-                     cell.textLabel.text=@"店铺押金";
-                }
-                
+//                }else{
+//                     cell.textLabel.text=@"店铺押金";
+//                }
                 cell.accessoryView = _ZRtransfer;
             }
                 break;
@@ -1170,6 +1172,7 @@ else{
                 }
                     break;
                 default:{
+                    
                     NSLog(@"营业执照");
                     self.Photochange = [NSString new];
                     self.Photochange = @"lice";
@@ -1178,7 +1181,6 @@ else{
                     break;
             }
         }
-            
             break;
         case 1:{
             switch (indexPath.row){
@@ -1194,7 +1196,7 @@ else{
                     //         列1
                 case 1:{
                     
-                    
+                    NSLog(@"转让费用");
                     NSLog(@"%@",cell.textLabel.text);
 #pragma mark - block传值 转让费用
                     
@@ -1214,8 +1216,6 @@ else{
                     NSLog(@"店铺租金");
                     NSLog(@"%@",cell.textLabel.text);
 #pragma mark - block传值 租金
-                    
-                    
                 }
                     break;
                     //         列5
@@ -1323,6 +1323,7 @@ else{
         case 2:{
             switch (indexPath.row) {
                 case 0:{
+                    
                     NSLog(@"可联系人");
                 }
                     break;
@@ -1369,7 +1370,7 @@ else{
                     break;
                     //         列4
                 case 4:{
-                    
+    
                     NSLog(@"经营状态");
                     NSLog(@"%@",cell.textLabel.text);
                     ZRManagementController *ctl = [[ZRManagementController alloc]init];
@@ -1434,9 +1435,8 @@ else{
     }
 }
 
-
--(void)takelocaCamera
-{
+-(void)takelocaCamera{
+    
     //    AVAuthorizationStatusNotDetermined = 0,没有询问是否开启相机
     //    AVAuthorizationStatusRestricted    = 1,未授权，家长限制
     //    AVAuthorizationStatusDenied        = 2,//未授权
@@ -1473,6 +1473,7 @@ else{
                 //用户拒绝
             }
         }];
+        
     }else if (status == AVAuthorizationStatusRestricted){
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"您的相机权限受限" preferredStyle:UIAlertControllerStyleAlert];
         
@@ -1523,7 +1524,6 @@ else{
         });
     }
 }
-
 
 -(void)takelocaPhoto{
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
@@ -1595,7 +1595,6 @@ else{
     }else if (photoAuthorStatus == PHAuthorizationStatusRestricted){
         
         NSLog(@"Restricted");
-        
     }
 }
 
@@ -1622,6 +1621,7 @@ else{
         }];
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            
             [alertController addAction:cancleAction];
             [alertController addAction:commitAction];
             [alertController addAction:saveAction];
@@ -1794,7 +1794,7 @@ else{
     else{
     NSLog(@"点击上传多个图片数据");
          [YJLHUD showMyselfBackgroundColor:nil ForegroundColor:nil BackgroundLayerColor:nil message:@"发布服务中..."];
-        if ([self.Navtitle isEqualToString:@"发布转让"]) {
+//        if ([self.Navtitle isEqualToString:@"发布转让"]) {
             NSDictionary *params =  @{
                                           @"publisher":[[YJLUserDefaults shareObjet]getObjectformKey:YJLuser],
                                           @"zrid":self.serviceID
@@ -1920,149 +1920,6 @@ else{
                       [self aleartfaile];
                       NSLog(@"请求失败=%@",error);
                   }];
-        }
-
-        else{
-            
-            
-             [YJLHUD showMyselfBackgroundColor:nil ForegroundColor:nil BackgroundLayerColor:nil message:@"发布服务中..."];
-            NSDictionary *params =  @{
-                                          @"publisher":[[YJLUserDefaults shareObjet]getObjectformKey:YJLuser],
-                                          @"czid":self.serviceID
-                                      };
-            NSLog(@"账号字典内容 = %@",params);
-            
-            
-#pragma - marl     发布出租信息
-    
-            AFHTTPSessionManager *manager       = [AFHTTPSessionManager manager];
-            manager.responseSerializer          = [AFJSONResponseSerializer serializer];
-            manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"multipart/form-data", @"application/json", @"text/html", @"image/jpeg", @"image/png", @"application/octet-stream", @"text/json", nil];
-            [manager POST:Hostrentupload parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData) {
-                
-                for(NSInteger i = 0; i < _selectedPhotos.count; i++){
-                    NSData *imageData = UIImageJPEGRepresentation(_selectedPhotos[i], 0.5);
-                    // 在网络开发中，上传文件时，是文件不允许被覆盖，文件重名
-                    // 要解决此问题，
-                    // 可以在上传时使用当前的系统事件作为文件名
-                    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-                    // 设置时间格式
-                    [formatter setDateFormat:@"yyyyMMddHHmmss"];
-                    NSString *dateString = [formatter stringFromDate:[NSDate date]];
-                    NSString *fileName = [NSString  stringWithFormat:@"%@%ld.jpg", dateString,i];
-                    NSLog(@"图片名字：%@",fileName);
-                    /*
-                     *该方法的参数
-                     1. appendPartWithFileData：要上传的照片[二进制流]
-                     2. name：对应网站上[upload.php中]处理文件的字段（比如upload）
-                     3. fileName：要保存在服务器上的文件名
-                     4. mimeType：上传的文件的类型
-                     */
-                    
-                    [formData appendPartWithFileData:imageData name:@"image[]" fileName:fileName mimeType:@"image/jpeg"];
-                    NSLog(@"上传照片image%ld",i);
-                    
-                     if ([self.licenseYES isEqualToString: @"licenseYES"]) {
-                         //        身份证信息
-                         NSDateFormatter *formattercord2      = [[NSDateFormatter alloc] init];
-                         formattercord2.dateFormat            = @"ddMMyyyyHHmmss";
-                         NSString *fileNamecord2              = [NSString stringWithFormat:@"%@.png", [formattercord2 stringFromDate:[NSDate date]]];
-                         [formData appendPartWithFileData:UIImageJPEGRepresentation(_Cardimgview.image, 0.1) name:@"card" fileName:fileNamecord2 mimeType:@"image/png"];
-                         NSLog(@"身份证图片名字：%@",fileNamecord2);
-                     }
-                    
-                    if ([self.cardYES isEqualToString:@"cardYES"]) {
-                        //        营业执照
-                        NSDateFormatter *formatterlice2      = [[NSDateFormatter alloc] init];
-                        formatterlice2.dateFormat            = @"yyyyMMddHHmmss";
-                        NSString *fileNamelice2              = [NSString stringWithFormat:@"%@.png", [formatterlice2 stringFromDate:[NSDate date]]];
-                        [formData appendPartWithFileData:UIImageJPEGRepresentation(_Licenseimgview.image, 0.1) name:@"license" fileName:fileNamelice2 mimeType:@"image/png"];
-                        NSLog(@"营业执照图片名字：%@",fileNamelice2);
-                    }
-                    
-                    //    名称
-                    [formData appendPartWithFormData:[self.ZRname.text dataUsingEncoding:NSUTF8StringEncoding] name:@"name"];
-                   
-                    //    转让费
-                    [formData appendPartWithFormData:[self.ZRtransfer.text dataUsingEncoding:NSUTF8StringEncoding] name:@"cost"];
-                  
-                    //    租金
-                    [formData appendPartWithFormData:[self.ZRrent.text dataUsingEncoding:NSUTF8StringEncoding] name:@"rent"];
-                  
-                    //    面积
-                    [formData appendPartWithFormData:[self.ZRarea.text dataUsingEncoding:NSUTF8StringEncoding] name:@"area"];
-                  
-                    //    区域
-                    self.ZRcitylab.text = [self.ZRcitylab.text stringByReplacingOccurrencesOfString:@" " withString:@","];//替换字符
-                    NSString *ZRstr = [NSString stringWithFormat:@"%@,%@",self.ZRcitylab.text,self.ZRaddresslab.text];
-                    NSData*datacity=[ZRstr dataUsingEncoding:NSUTF8StringEncoding];
-                    [formData appendPartWithFormData:datacity name:@"district"];
-                    
-                    //    坐标
-                    [formData appendPartWithFormData:[self.coordinate dataUsingEncoding:NSUTF8StringEncoding] name:@"coordinate"];
-                    
-                    //    描述
-                    [formData appendPartWithFormData:[self.ZRdescribelab.text dataUsingEncoding:NSUTF8StringEncoding] name:@"descript"];
-                   
-                    //    联系人
-                    [formData appendPartWithFormData:[self.ZRperson.text dataUsingEncoding:NSUTF8StringEncoding] name:@"user"];
-                    
-                    //    联系电话
-                    [formData appendPartWithFormData:[self.ZRnumber.text dataUsingEncoding:NSUTF8StringEncoding] name:@"phone"];
-                    //    行业
-                    NSArray *industryarr = @[@"餐饮美食",@"美容美发",@"服饰鞋包",@"休闲娱乐",@"百货超市",@"生活服务",@"电子通讯",@"汽车服务",@"医疗保健",@"家居建材",@"教育培训",@"酒店宾馆"];
-             
-                    NSString *industystr = [[NSString alloc]init];
-                    for (int i =0; i < industryarr.count; i++){
-                        
-                        if ([self.ZRindustrylab.text isEqualToString:industryarr[i]]){
-                            
-                            industystr = [NSString stringWithFormat:@"%d",i+1];
-                        }
-                    }
-                    
-                    NSLog(@"类型名称 ====  %@",self.ZRindustrylab.text);
-                    NSLog(@"类型ID ====== %@ ",industystr);
-                    [formData appendPartWithFormData:[industystr dataUsingEncoding:NSUTF8StringEncoding] name:@"trade"];
-                    
-                    //    空转
-                    if ([self.ZRturnlab.text isEqualToString:@"允许 空转"]) {
-                        [formData appendPartWithFormData:[[NSString stringWithFormat:@"0"] dataUsingEncoding:NSUTF8StringEncoding] name:@"spin"];
-                    }else if([self.ZRturnlab.text isEqualToString:@"允许 整转"]){
-                        [formData appendPartWithFormData:[[NSString stringWithFormat:@"1"] dataUsingEncoding:NSUTF8StringEncoding] name:@"spin"];
-                    }else{
-                        [formData appendPartWithFormData:[[NSString stringWithFormat:@"2"] dataUsingEncoding:NSUTF8StringEncoding] name:@"spin"];
-                    }
-                   
-                    //    经营状态
-                    if ([self.ZRManagementlab.text isEqualToString:@"正在营业"]){
-                        [formData appendPartWithFormData:[[NSString stringWithFormat:@"1"] dataUsingEncoding:NSUTF8StringEncoding] name:@"state"];
-                    }
-                    else{
-                        [formData appendPartWithFormData:[[NSString stringWithFormat:@"0"] dataUsingEncoding:NSUTF8StringEncoding] name:@"state"];
-                    }
-                    //    合同
-                    [formData appendPartWithFormData:[self.ZRcontractlab.text dataUsingEncoding:NSUTF8StringEncoding] name:@"contract"];
-                    
-                    //      配套设施id
-                    [formData appendPartWithFormData:[self.ZRSupportid dataUsingEncoding:NSUTF8StringEncoding] name:@"facilty"];
-                }
-            }
-                  success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                     
-                     [YJLHUD dismiss];
-                      NSLog(@"请求成功=%@",responseObject[@"code"]);
-                      NSLog(@"请求成功返回数据=%@",responseObject);
-                      //                  上传成功提示信息
-                      [self aleartwin:[NSString stringWithFormat:@"%@",responseObject[@"code"]]:[NSString stringWithFormat:@"%@",responseObject[@"massign"]]];
-                      
-                  } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                      
-                     [YJLHUD dismiss];
-                      [self aleartfaile];
-                      NSLog(@"请求失败=%@",error);
-                  }];
-        }
     }
 }
 //    电话号码出错
@@ -2089,7 +1946,6 @@ else{
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"发布成功" message:@"待审核通过即可服务，您可以去前往发布中心查看服务状态" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             NSLog(@"点击了取消");
-            //            [self BackreleaseZR];
         }];
         
         UIAlertAction *commitAction = [UIAlertAction actionWithTitle:@"前往" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -2128,7 +1984,6 @@ else{
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
-
 #pragma  -mark - 手势返回
 - (void)recognizer:(UISwipeGestureRecognizer*)recognizer{
     
@@ -2142,7 +1997,7 @@ else{
 }
 
 -(void)sureback{
-    
+
     self.rightButton.enabled = YES;
     self.surebtn.enabled     = NO;
     [UIView animateWithDuration:.5f animations:^{
@@ -2163,7 +2018,7 @@ else{
     
     UIAlertAction *commitAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
         NSLog(@"点击了确认");
-        
+    
         [self popOutview];
         
         [self.navigationController popViewControllerAnimated:YES];
@@ -2174,7 +2029,6 @@ else{
     [alertController addAction:commitAction];
     [self presentViewController:alertController animated:YES completion:nil];
 }
-
 
 -(void)viewWillAppear:(BOOL)animated{
     
@@ -2187,10 +2041,7 @@ else{
     
     [super viewWillDisappear:animated];
   
-    
 }
-
-
 
 #pragma mark UICollectionView    下面全部是图片获取的方法
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -2215,7 +2066,6 @@ else{
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == _selectedPhotos.count) {
-        
         
         UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"相册配图", nil];
         [sheet showInView:self.view];
@@ -2330,7 +2180,6 @@ else{
     [self presentViewController:imagePickerVc animated:YES completion:nil];
 }
 
-
 #pragma mark - Private
 /// 打印图片名字
 - (void)printAssetsName:(NSArray *)assets {
@@ -2344,7 +2193,7 @@ else{
             ALAsset *alAsset = (ALAsset *)asset;
             fileName = alAsset.defaultRepresentation.filename;;
         }
-        
+
         NSLog(@"图片名字:%@",fileName);
     }
 }

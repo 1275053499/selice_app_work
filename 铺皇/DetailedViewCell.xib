@@ -541,10 +541,10 @@
                         <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="转让费:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nvw-9j-CEY">
-                        <rect key="frame" x="154" y="638" width="45" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="转让费用:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nvw-9j-CEY">
+                        <rect key="frame" x="154" y="638" width="60" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="45" id="5QK-oh-GYJ"/>
+                            <constraint firstAttribute="width" constant="60" id="5QK-oh-GYJ"/>
                             <constraint firstAttribute="height" constant="20" id="HN2-4M-TYf"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -576,11 +576,11 @@
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20万" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POm-YD-1WT">
-                        <rect key="frame" x="204" y="638" width="90" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="押二付一" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POm-YD-1WT">
+                        <rect key="frame" x="219" y="638" width="75" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="aBa-iR-RxZ"/>
-                            <constraint firstAttribute="width" constant="90" id="h5C-mT-OnZ"/>
+                            <constraint firstAttribute="width" constant="75" id="h5C-mT-OnZ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
@@ -780,6 +780,7 @@
                 <outlet property="ShopXQnumber" destination="kEG-uh-PWU" id="gi9-pc-ORx"/>
                 <outlet property="ShopXQperson" destination="8cm-Du-a2O" id="Dy6-eL-fft"/>
                 <outlet property="ShopXQprice" destination="POm-YD-1WT" id="3H3-ge-YBO"/>
+                <outlet property="ShopXQpricetitle" destination="Nvw-9j-CEY" id="vNE-xP-qGZ"/>
                 <outlet property="ShopXQquyu" destination="8hB-0R-lvY" id="Gjj-FM-gyI"/>
                 <outlet property="ShopXQrent" destination="dtV-CL-F4L" id="hUM-ws-bzI"/>
                 <outlet property="ShopXQstate" destination="M5T-0g-AaI" id="k4P-0q-l9p"/>
@@ -798,6 +799,7 @@
                 <outlet property="Shoping25" destination="thU-Wd-CH2" id="EQt-pw-Ybx"/>
                 <outlet property="Shopname" destination="iaj-Nu-zvd" id="2Oh-xk-vdD"/>
                 <outlet property="Shopprice" destination="6gO-fV-BSO" id="Ilo-Au-uG7"/>
+                <outlet property="ShoppriceTitle" destination="xfF-UT-nxY" id="kFh-3w-qGy"/>
                 <outlet property="Shopquyu" destination="jUh-hs-oau" id="wqn-KE-fUA"/>
                 <outlet property="Shoprent" destination="Siw-tx-JSH" id="dfE-aC-kp5"/>
                 <outlet property="Shoptime" destination="bfV-4e-fiu" id="sKt-Al-Nkd"/>
@@ -820,7 +822,7 @@
                 <outlet property="zujinLwidth" destination="P7O-p3-h04" id="qUd-fe-MnZ"/>
                 <outlet property="zujinwidth" destination="lz0-gy-Ots" id="RVd-7X-dJb"/>
             </connections>
-            <point key="canvasLocation" x="-366" y="-1671"/>
+            <point key="canvasLocation" x="-855" y="-1668"/>
         </tableViewCell>
     </objects>
     <resources>

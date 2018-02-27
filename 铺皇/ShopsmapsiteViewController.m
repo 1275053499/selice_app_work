@@ -498,7 +498,6 @@ enum {
                 make.size.mas_equalTo(CGSizeMake(KMainScreenWidth, 200));
             }];
             
-        
 //            图片
             UIImageView *IMG =[[UIImageView alloc]init];
             [IMG sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",model.Mapimg]] placeholderImage:[UIImage imageNamed:@"nopicture"]];//店铺图片
@@ -581,17 +580,29 @@ enum {
             Mapmoneys.textAlignment      = NSTextAlignmentLeft;
             Mapmoneys.adjustsFontSizeToFitWidth=YES;
             Mapmoneys.font               = [UIFont systemFontOfSize:12.0f];
-            NSMutableAttributedString *Mapmoneysstring = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"[费用]:%@万",model.Mapmoneys]];
-            
-            //修改颜色
-            [Mapmoneysstring addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, 5)];
-            Mapmoneys.attributedText     = Mapmoneysstring;
-            [self.mainView addSubview:Mapmoneys];
-            [Mapmoneys mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.size.mas_equalTo(CGSizeMake(KMainScreenWidth-180, 15));
-                make.left.equalTo(IMG.mas_right).with.offset(10);
-                make.top.equalTo(Maprent.mas_bottom).with.offset(10);
-            }];
+            if ([self.mainDIS isEqualToString:@"zr"]) {
+               NSMutableAttributedString *Mapmoneysstring = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"[费用]:%@万",model.Mapmoneys]];
+                //修改颜色
+                [Mapmoneysstring addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, 5)];
+                Mapmoneys.attributedText     = Mapmoneysstring;
+                [self.mainView addSubview:Mapmoneys];
+                [Mapmoneys mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.size.mas_equalTo(CGSizeMake(KMainScreenWidth-180, 15));
+                    make.left.equalTo(IMG.mas_right).with.offset(10);
+                    make.top.equalTo(Maprent.mas_bottom).with.offset(10);
+                }];
+            }else{
+                NSMutableAttributedString *Mapmoneysstring = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"[租金类型]:%@",model.Mapmoneys]];
+                //修改颜色
+                [Mapmoneysstring addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, 5)];
+                Mapmoneys.attributedText     = Mapmoneysstring;
+                [self.mainView addSubview:Mapmoneys];
+                [Mapmoneys mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.size.mas_equalTo(CGSizeMake(KMainScreenWidth-180, 15));
+                    make.left.equalTo(IMG.mas_right).with.offset(10);
+                    make.top.equalTo(Maprent.mas_bottom).with.offset(10);
+                }];
+            }
             
 //            类型 Maptype
             UILabel *Maptype =[[UILabel alloc]init];
@@ -838,7 +849,6 @@ enum {
             
         }else{//如果城市不一样可以进行下一步
             
-    
             [YJLHUD showImage:nil message:[NSString stringWithFormat:@"您当前查询范围已经超越了%@，如需查询，请先切换城市",self.cityname]];//无图片 纯文字
             [YJLHUD dismissWithDelay:1];
             

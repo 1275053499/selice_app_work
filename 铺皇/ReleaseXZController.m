@@ -147,7 +147,6 @@
     _ZWsalary = [[UILabel alloc]initWithFrame:CGRectMake(75, 0, KMainScreenWidth-100, 50)];
     _ZWsalary.textAlignment       = NSTextAlignmentRight;
     _ZWsalary.font                = [UIFont systemFontOfSize:14.0];
-
     _ZWsalary.text                = @"请填写信息";
     _ZWsalary.textColor           = [UIColor colorWithRed:161/255.0 green:161/255.0 blue:161/255.0 alpha:1.0];
     

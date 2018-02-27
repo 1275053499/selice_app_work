@@ -91,7 +91,6 @@
 
 -(void)loaddata{
     
-   
     #pragma 出租数据获取
     if ([self.shopcode  isEqualToString:@"rentout"]) {
          [YJLHUD showMyselfBackgroundColor:nil ForegroundColor:nil BackgroundLayerColor:nil message:@"加载中...."];
@@ -568,7 +567,16 @@
     cell.Shoptime.text      = [NSString stringWithFormat:@"%@更新"       ,_model.Shoptime         ];//_model.Shoptime;
     cell.Shoprent.text      = [NSString stringWithFormat:@"%@元/月"      ,_model.Shoprent         ];//_model.Shoprent;
     cell.Shoparea.text      = [NSString stringWithFormat:@"%@m²"        ,_model.Shoparea         ];//_model.Shoparea;
-    cell.Shopprice.text     = [NSString stringWithFormat:@"%@万元"       ,_model.Shopprice        ];//_model.Shopprice;
+    
+#pragma 出租数据获取
+    if ([self.shopcode  isEqualToString:@"rentout"]){
+        cell.ShoppriceTitle.text = @"租金类型";
+         cell.Shopprice.text     = [NSString stringWithFormat:@"%@"       ,_model.Shopprice        ];//_model.Shopprice;
+    }else{
+        cell.ShoppriceTitle.text = @"转让费";
+         cell.Shopprice.text     = [NSString stringWithFormat:@"%@万元"       ,_model.Shopprice        ];//_model.Shopprice;
+    }
+   
     cell.Shopquyu.text      = [NSString stringWithFormat:@"%@"          ,_model.Shopquyu         ];//_model.Shopquyu;
     cell.Shopfit.text       = [NSString stringWithFormat:@"%@"          ,_model.Shopfit          ];//_model.Shopfit;
     cell.ShopXQperson.text  = [NSString stringWithFormat:@"%@"          ,_model.ShopXQperson     ];//_model.ShopXQperson;
@@ -578,7 +586,15 @@
     cell.ShopXQtype.text    = [NSString stringWithFormat:@"%@"          ,_model.ShopXQtype       ];//_model.ShopXQtype;
     cell.ShopXQquyu.text    = [NSString stringWithFormat:@"%@"          ,_model.ShopXQquyu       ];//_model.ShopXQquyu;
     cell.ShopXQstate.text   = [NSString stringWithFormat:@"%@"          ,_model.ShopXQstate      ];//_model.ShopXQstate;
-    cell.ShopXQprice.text   = [NSString stringWithFormat:@"%@万"        ,_model.ShopXQprice      ];//_model.ShopXQprice;
+    
+#pragma 出租数据获取
+    if ([self.shopcode  isEqualToString:@"rentout"]){
+        cell.ShopXQpricetitle.text = @"租金类型:";
+       cell.ShopXQprice.text   = [NSString stringWithFormat:@"%@"        ,_model.ShopXQprice      ];//_model.ShopXQprice;
+    }else{
+        cell.ShopXQpricetitle.text = @"转让费:";
+        cell.ShopXQprice.text   = [NSString stringWithFormat:@"%@万"        ,_model.ShopXQprice      ];//_model.ShopXQprice;
+    }
     
     cell.ShopXQdescribe.text= [NSString stringWithFormat:@"%@"          ,_model.ShopXQdescribe   ]; //_model.ShopXQdescribe;
     cell.Describe_height.constant = [self heightForString:cell.ShopXQdescribe andWidth:KMainScreenWidth-20];

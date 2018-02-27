@@ -61,7 +61,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *Shoprent;//商铺租金
 @property (weak, nonatomic) IBOutlet UILabel *Shoparea;//商铺面积
-@property (weak, nonatomic) IBOutlet UILabel *Shopprice;//商铺转让费
+@property (weak, nonatomic) IBOutlet UILabel *Shopprice;//商铺转让费OR租金类型
+@property (weak, nonatomic) IBOutlet UILabel *ShoppriceTitle;//区别商铺转让费OR租金类型
+
 
 @property (weak, nonatomic) IBOutlet UILabel *Shopquyu;//商铺区域
 @property (weak, nonatomic) IBOutlet UILabel *Shopfit;//商铺适合经营
@@ -85,7 +87,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *ShopXQperson;//商铺详情联系人
 @property (weak, nonatomic) IBOutlet UILabel *ShopXQnumber;//商铺详情电话
 @property (weak, nonatomic) IBOutlet UILabel *ShopXQstate;//商铺详情经验状态
-@property (weak, nonatomic) IBOutlet UILabel *ShopXQprice;//商铺详情转让费
+@property (weak, nonatomic) IBOutlet UILabel *ShopXQprice;//商铺详情转让费OR租金类型
+@property (weak, nonatomic) IBOutlet UILabel *ShopXQpricetitle;//区别商铺详情转让费OR租金类型
 
 
 @property (weak, nonatomic) IBOutlet UITextView *ShopXQdescribe;

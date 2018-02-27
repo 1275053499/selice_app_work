@@ -4002,6 +4002,23 @@
 			name = "出租发布";
 			sourceTree = "<group>";
 		};
+		445A02832043D8ED001C8DA6 /* 转让出租共用class */ = {
+			isa = PBXGroup;
+			children = (
+				440CB6AD1FA4940900DE5598 /* 套餐model */,
+				440CB6A71FA4913300DE5598 /* 套餐cell */,
+				44C47EB11ED58CDF008334F7 /* 具体地址 */,
+				44C47EB41ED58D16008334F7 /* 店铺描述 */,
+				44C47EAF1ED58CC9008334F7 /* 店铺行业 */,
+				440809A31ED6A7A00016A428 /* 可否空转 */,
+				440809A41ED6A7AD0016A428 /* 经营状态 */,
+				440809A51ED6A7B60016A428 /* 合同到期 */,
+				440809A61ED6A7C50016A428 /* 配套设施 */,
+				44EE30411ED4175F00784696 /* pic */,
+			);
+			name = "转让出租共用class";
+			sourceTree = "<group>";
+		};
 		446C6ADC20085E2600B59109 /* SVProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -5206,15 +5223,6 @@
 			name = mainController;
 			sourceTree = "<group>";
 		};
-		44F7D85F1EEBE49400D69347 /* mainController */ = {
-			isa = PBXGroup;
-			children = (
-				44FE6ED01EC5A0E8000E27F5 /* ReleaseZRController.h */,
-				44FE6ED11EC5A0E8000E27F5 /* ReleaseZRController.m */,
-			);
-			name = mainController;
-			sourceTree = "<group>";
-		};
 		44F7D8601EEBE4BA00D69347 /* 弹出选择 */ = {
 			isa = PBXGroup;
 			children = (
@@ -5684,22 +5692,13 @@
 			name = Pic;
 			sourceTree = "<group>";
 		};
-		44FE6E9F1EC59A27000E27F5 /* 转让出租招商发布 */ = {
+		44FE6E9F1EC59A27000E27F5 /* 转让发布 */ = {
 			isa = PBXGroup;
 			children = (
-				440CB6AD1FA4940900DE5598 /* 套餐model */,
-				440CB6A71FA4913300DE5598 /* 套餐cell */,
-				44F7D85F1EEBE49400D69347 /* mainController */,
-				44C47EB11ED58CDF008334F7 /* 具体地址 */,
-				44C47EB41ED58D16008334F7 /* 店铺描述 */,
-				44C47EAF1ED58CC9008334F7 /* 店铺行业 */,
-				440809A31ED6A7A00016A428 /* 可否空转 */,
-				440809A41ED6A7AD0016A428 /* 经营状态 */,
-				440809A51ED6A7B60016A428 /* 合同到期 */,
-				440809A61ED6A7C50016A428 /* 配套设施 */,
-				44EE30411ED4175F00784696 /* pic */,
+				44FE6ED01EC5A0E8000E27F5 /* ReleaseZRController.h */,
+				44FE6ED11EC5A0E8000E27F5 /* ReleaseZRController.m */,
 			);
-			name = "转让出租招商发布";
+			name = "转让发布";
 			sourceTree = "<group>";
 		};
 		44FE6EA11EC59A46000E27F5 /* 选址发布 */ = {
@@ -6093,11 +6092,12 @@
 		5E7543D31E9B6A3B00E97750 /* 铺皇发布 */ = {
 			isa = PBXGroup;
 			children = (
+				445A02832043D8ED001C8DA6 /* 转让出租共用class */,
+				44FE6E9F1EC59A27000E27F5 /* 转让发布 */,
 				445A027F2043B9FF001C8DA6 /* 出租发布 */,
 				44F7D85E1EEBE46C00D69347 /* mainController */,
 				44FE6EA21EC59A51000E27F5 /* 招聘中心 */,
 				44FE6EA11EC59A46000E27F5 /* 选址发布 */,
-				44FE6E9F1EC59A27000E27F5 /* 转让出租招商发布 */,
 				44FE6E9E1EC58EE1000E27F5 /* Pic */,
 			);
 			name = "铺皇发布";
