@@ -789,21 +789,15 @@
            
              _count = 1;
              [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
-           
         }
         else if ([code isEqualToString:@"403"]){
             [YJLHUD showSuccessWithmessage:@"操作频繁"];
             [YJLHUD dismissWithDelay:1];
         }
         
-        else if ([code isEqualToString:@"301"]){
-            //  只是图片修改不成功
-            [YJLHUD showErrorWithmessage:@"修改失败"];
-            [YJLHUD dismissWithDelay:1];
-        }
-        
-        else if ([code isEqualToString:@"302"]){
-            //  只是文字修改不成功
+        else if ([code isEqualToString:@"301"]||[code isEqualToString:@"302"]){
+             //  只是图片修改不成功 301
+             //  只是文字修改不成功 302
             [YJLHUD showErrorWithmessage:@"修改失败"];
             [YJLHUD dismissWithDelay:1];
         }
@@ -815,11 +809,8 @@
         
         //请求失败
         NSLog(@"请求失败：%@",error);
-        
         [YJLHUD showErrorWithmessage:@"服务器连接失败"];
         [YJLHUD dismissWithDelay:1];
-       
-        
     }];
 }
 
