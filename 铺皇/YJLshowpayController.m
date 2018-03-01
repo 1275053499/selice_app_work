@@ -971,7 +971,8 @@
         NSString *appScheme = @"chinapuhuang";
 
         NSString * Order = [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
-        NSLog(@"datad转string:%@",Order);
+       
+        NSLog(@"datad转string:\n %@",Order);
         
         [[AlipaySDK defaultService] payOrder:Order fromScheme:appScheme callback:^(NSDictionary *resultDic) {
         
@@ -1034,12 +1035,12 @@
         //判断返回的许可
         if ([responseObject[@"result_code"] isEqualToString:@"SUCCESS"] && [responseObject[@"return_code"] isEqualToString:@"SUCCESS"]) {
             //发起微信支付，设置参数
-            PayReq *request     = [[PayReq alloc] init        ];
-            request.openID      = responseObject[@"appid"     ];
-            request.partnerId   = responseObject [@"mch_id"   ];
-            request.prepayId    = responseObject[@"prepay_id" ];
-            request.package     = @"Sign=WXPay";
-            request.nonceStr    = responseObject[@"nonce_str" ];
+            PayReq *request     =                   [[PayReq alloc] init];
+            request.openID      = responseObject    [@"appid"           ];
+            request.partnerId   = responseObject    [@"mch_id"          ];
+            request.prepayId    = responseObject    [@"prepay_id"       ];
+            request.package     =                    @"Sign=WXPay"      ;
+            request.nonceStr    = responseObject    [@"nonce_str"       ];
             
             NSDate   * datenow  = [NSDate date];
             NSString * timeSp   = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]];
