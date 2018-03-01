@@ -127,9 +127,9 @@
                      m.image    =   dic[@"images"   ];
                      //把模型那存到模型数组中
                      [self.arrModel addObject:m];
-                     [self.tableview reloadData];
                  }
                  
+                  [self.tableview reloadData];
                  [YJLHUD showSuccessWithmessage:@"加载成功"];
                  [YJLHUD dismissWithDelay:1];
                 [self.BGlab setHidden:YES];
@@ -257,10 +257,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     //取出模型
-    RecordModel *model=self.arrModel[indexPath.row];
-    NSLog(@"%@",model.nick);
+    RecordModel *model = self.arrModel[indexPath.section];
+    NSLog(@"%@",model.nick  );
     NSLog(@"%@",model.record);
-    NSLog(@"%@",model.times);
+    NSLog(@"%@",model.times );
 
     RecordViewCell *cell = [self.tableview dequeueReusableCellWithIdentifier:recordIndentifier];
     //传递模型给cell

@@ -65,7 +65,6 @@
         [imageScroll addSubview:imageView];
     }
     
-    
     UIPageControl *pageControl = [[UIPageControl alloc] init];
     pageControl.frame = CGRectMake((KMainScreenWidth - 20) / 2, KMainScreenHeight - 50, 20, 20);
     pageControl.numberOfPages = imageArr.count;

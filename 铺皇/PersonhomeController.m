@@ -694,6 +694,7 @@
     return imageDocPath;
 }
 
+
 #pragma mark - 图片选择器的方法
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     NSLog(@"获取到照片到信息===%@",info);
@@ -710,6 +711,7 @@
     }];
 }
 
+
 #pragma mark 保存 上传数据
 -(void)keeppersonEdit{
     NSLog(@"%@",[[YJLUserDefaults shareObjet]getObjectformKey:YJLuser]);
@@ -721,7 +723,6 @@
                              };
     
     NSLog(@"上传必须参数:%@",params1);
-    
     
     NSLog(@"保存");
     
@@ -742,6 +743,7 @@
     //post请求
 
     [manager POST:Personeditpath parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> _Nonnull formData) {
+      
         // 图片处理二进制
         NSData *imageData = UIImageJPEGRepresentation(_personimgview.image, 0.1);
         NSLog(@"图片二进制:%@",imageData);
@@ -765,14 +767,13 @@
         
 //      城市
         [formData appendPartWithFormData: [self.personcity.text dataUsingEncoding:NSUTF8StringEncoding] name:@"city"];
-         NSLog(@"签名:%@",self.personcity.text);
+         NSLog(@"城市:%@",self.personcity.text);
+        
 //      签名
-    [formData appendPartWithFormData:[self.personsignatureStr dataUsingEncoding:NSUTF8StringEncoding] name:@"signature"];
+       [formData appendPartWithFormData:[self.personsignatureStr dataUsingEncoding:NSUTF8StringEncoding] name:@"signature"];
         NSLog(@"签名:%@",self.personsignature);
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-         [YJLHUD showSuccessWithmessage:@"更新成功"];
-         [YJLHUD dismissWithDelay:1];
         
         //请求成功
         NSLog(@"请求成功：%@",responseObject);
@@ -784,11 +785,15 @@
             [[YJLUserDefaults shareObjet]saveObject:@"YES" forKey:YJLEditchange];
            
             [YJLHUD showSuccessWithmessage:@"修改成功"];
-             [YJLHUD dismissWithDelay:1];
+            [YJLHUD dismissWithDelay:1];
            
              _count = 1;
              [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
            
+        }
+        else if ([code isEqualToString:@"403"]){
+            [YJLHUD showSuccessWithmessage:@"操作频繁"];
+            [YJLHUD dismissWithDelay:1];
         }
         
         else if ([code isEqualToString:@"301"]){
@@ -829,7 +834,6 @@
          [self back];
     }
 }
-
 
 #pragma mark 返回
 -(void)back{

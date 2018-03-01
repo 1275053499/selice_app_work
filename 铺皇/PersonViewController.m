@@ -167,6 +167,7 @@
     if (self.lastSelectedIndex == self.tabBarController.selectedIndex && [self isShowingOnKeyWindow]) {
 //        可以写刷新事件
     }
+    
     // 记录这一次选中的索引
     self.lastSelectedIndex = self.tabBarController.selectedIndex;
     
