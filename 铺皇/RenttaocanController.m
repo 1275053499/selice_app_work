@@ -13,7 +13,7 @@
 #import "SafenumberController.h"
 @interface RenttaocanController ()<UIScrollViewDelegate,UITextFieldDelegate>{
      int  i ;
-    
+    NSInteger           _count;               //倒计时
     UIScrollView *  MainScrollrent;
     UIView  * viewone;
     UILabel * labone;
@@ -974,6 +974,8 @@
                if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]){
                    
                     [YJLHUD showSuccessWithmessage:@"店铺续约成功"];
+                   _count = 1;
+                   [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
                    
                }else{
                   
@@ -1005,10 +1007,10 @@
                    }
                }
                  
-                   [YJLHUD dismissWithDelay:2.0];
+                   [YJLHUD dismissWithDelay:1.0];
     
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                       [YJLHUD dismissWithDelay:0];
+                       [YJLHUD dismissWithDelay:1];
                           NSLog(@"请求失败=%@",error);
                           UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"⚠️提示" message:@"已断开与互联网的连接" preferredStyle:UIAlertControllerStyleAlert];
                           UIAlertAction *commitAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
@@ -1017,6 +1019,19 @@
                           [alertController addAction:commitAction];
                           [self presentViewController:alertController animated:YES completion:nil];
                       }];
+}
+
+//倒计时返回
+-(void)timerFired:(NSTimer *)timer{
+    if (_count !=0) {
+        _count -=1;
+        
+    }
+    else{
+        
+        [timer invalidate];
+       [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 #pragma -mark 返回

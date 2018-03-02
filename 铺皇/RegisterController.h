@@ -14,6 +14,7 @@ typedef void (^ returnvalue) (NSString * uservalue,NSString * passwordvalue);
 @interface RegisterController : UIViewController
 
 @property (nonatomic,copy) returnvalue value;
+
 //方法
 -(void)result:(returnvalue)value;
 

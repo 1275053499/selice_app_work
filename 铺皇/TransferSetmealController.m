@@ -14,7 +14,7 @@
 @interface TransferSetmealController ()<UIScrollViewDelegate,UITextFieldDelegate>{
   
       int  i ;
-    
+    NSInteger           _count;               //倒计时
     UIScrollView *  MainScroll;
 
     UIView  * viewone;
@@ -1290,6 +1290,8 @@
                   }else{
                       
                        [YJLHUD showSuccessWithmessage:@"续约成功"];
+                      _count = 1;
+                      [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
                       
                       }
               }
@@ -1308,11 +1310,11 @@
             }
     
               // 1秒之后再消失
-              [YJLHUD dismissWithDelay:2.0];
+              [YJLHUD dismissWithDelay:1.0];
               
           } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
               
-               [YJLHUD dismissWithDelay:2.0];
+               [YJLHUD dismissWithDelay:1.0];
               NSLog(@"请求失败=%@",error);
               UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"⚠️提示" message:@"已断开与互联网的连接" preferredStyle:UIAlertControllerStyleAlert];
               UIAlertAction *commitAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
@@ -1324,6 +1326,19 @@
               
           }];
     #pragma    付钱结束
+}
+
+//倒计时返回
+-(void)timerFired:(NSTimer *)timer{
+    if (_count !=0) {
+        _count -=1;
+        
+    }
+    else{
+        
+        [timer invalidate];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 #pragma  -mark - 手势返回

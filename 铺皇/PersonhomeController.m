@@ -821,7 +821,8 @@
        
     }
     else{
-        [timer invalidate];
+        
+         [timer invalidate];
          [self back];
     }
 }

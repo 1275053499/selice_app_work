@@ -572,8 +572,7 @@
                             UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"警告" message:@"您输入的验证码不正确，验证码有效时间120秒，再次确认输入" preferredStyle:UIAlertControllerStyleAlert];
                             UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
                             
-                            
-                            
+                    
                             [alertC addAction:alertAction];
                             [self presentViewController:alertC animated:YES completion:nil];
                         }
