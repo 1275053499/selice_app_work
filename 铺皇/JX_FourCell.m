@@ -7,7 +7,7 @@
 //
 
 #import "JX_FourCell.h"
-
+#import "JX_FourModel.h"
 @implementation JX_FourCell
 
 - (void)awakeFromNib {
@@ -26,10 +26,22 @@
     _Pricelab.adjustsFontSizeToFitWidth = YES;
 }
 
+
++ (instancetype)cellWithOrderTableView:(UITableView *)tableView{
+    static NSString *ID = @"JX_FourCell";
+    JX_FourCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cell == nil) {
+        cell=[[NSBundle mainBundle] loadNibNamed:ID owner:nil options:0][0];
+    }
+    return cell;
+}
+-(void)setJX_FourModel:(JX_FourModel *)JX_FourModel{
+    
+}
+
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-   
 }
-
 @end

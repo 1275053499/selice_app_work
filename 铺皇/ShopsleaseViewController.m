@@ -179,7 +179,7 @@
         [[CZdataBase shareCZdataBase]deletedCZdata];
         [self.PHDataArr removeAllObjects];
        [YJLHUD showSuccessWithmessage:@"加载成功"];
-       [YJLHUD dismissWithDelay:1];
+       [YJLHUD dismissWithDelay:0.2];
         NSLog(@"请求数据成功----%@",responseObject);
 //        NSLog(@"判断数据=======%@", responseObject[@"code"]);
         if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]) {
@@ -276,7 +276,7 @@
 //        NSLog(@"判断数据=======%@", responseObject[@"code"]);
         if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]) {
             NSLog(@"可以拿到数据的");
-            [YJLHUD dismissWithDelay:1];
+            [YJLHUD dismissWithDelay:0.2];
             
             NSMutableArray *arr = responseObject[@"data"];
             if (arr.count<1) {

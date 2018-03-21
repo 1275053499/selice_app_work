@@ -92,7 +92,7 @@
         if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]) {
 //            NSLog(@"可以拿到数据的");
             [YJLHUD showSuccessWithmessage:@"加载成功"];
-            [YJLHUD dismissWithDelay:1];
+            [YJLHUD dismissWithDelay:0.2];
             for (NSDictionary *dic in responseObject[@"data"][@"zp"]){
                 
                 if ([[dic[@"ret"] stringValue] isEqualToString:@"500"]) {
@@ -161,7 +161,7 @@
 //            NSLog(@"可以拿到数据的");
             
             [YJLHUD showSuccessWithmessage:@"加载成功"];
-            [YJLHUD dismissWithDelay:1];
+            [YJLHUD dismissWithDelay:0.2];
             for (NSDictionary *dic in responseObject[@"data"][@"zp"]){
                 
                 if ([[dic[@"ret"] stringValue] isEqualToString:@"500"]) {

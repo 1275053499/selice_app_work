@@ -131,9 +131,9 @@
     }
     
         //创建AVPlayerViewController控制器
-        YJLPlayer = [[AVPlayerViewController alloc] init];
-        YJLPlayer.player    = player;
-        YJLPlayer.view.frame = self.view.frame;
+        YJLPlayer               = [[AVPlayerViewController alloc] init];
+        YJLPlayer.player        = player;
+        YJLPlayer.view.frame    = self.view.frame;
         //调用控制器的属性player的开始播放方法
         [self presentViewController:YJLPlayer animated:YES completion:nil];
         [YJLPlayer.player play];

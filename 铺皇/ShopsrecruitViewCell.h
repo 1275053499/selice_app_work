@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class ShopsrecruitModel;
 @interface ShopsrecruitViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *CompanyJobname;       //招聘职位
 @property (weak, nonatomic) IBOutlet UILabel *CompanyTimers;        //招聘时间
@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *CompanySuffer;        //招聘经验
 @property (weak, nonatomic) IBOutlet UILabel *Companyeducation;     //招聘学历
 @property (weak, nonatomic) IBOutlet UILabel *Companysalary;        //招聘工资
-
+@property (nonatomic, strong)       ShopsrecruitModel *model;
++ (instancetype)cellWithOrderTableView:(UITableView *)tableView;
 @end

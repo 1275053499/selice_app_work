@@ -7,7 +7,7 @@
 //
 
 #import "ShopsiteViewCell.h"
-
+#import "Shopsitemodel.h"
 @implementation ShopsiteViewCell
 
 - (void)awakeFromNib {
@@ -31,6 +31,29 @@
     _Shopsiterent.adjustsFontSizeToFitWidth = YES;
     
 }
+
++ (instancetype)cellWithOrderTableView:(UITableView *)tableView
+{
+    static NSString *ID = @"ShopsiteViewCell";
+    ShopsiteViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cell == nil) {
+        cell=[[NSBundle mainBundle] loadNibNamed:ID owner:nil options:0][0];
+    }
+    return cell;
+}
+
+-(void)setModel:(Shopsitemodel *)model{
+    _model = model;
+    _Shopsitetitle.text    = model.Shopsitetitle;
+    _Shopsitedescribe.text = model.Shopsitedescribe;
+    _Shopsitetype.text     = model.Shopsitetype;
+    _Shopsitequyu.text     = model.Shopsitequyu;
+    _Shopsitearea.text     = [NSString stringWithFormat:@"%@m²",model.Shopsitearea];
+    _Shopsiterent.text     = [NSString stringWithFormat:@"%@元/月",model.Shopsiterent];
+}
+
+
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

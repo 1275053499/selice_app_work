@@ -110,7 +110,7 @@
   self.task = [manager GET:URL parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
       
       [YJLHUD showSuccessWithmessage:@"加载成功"];
-      [YJLHUD dismissWithDelay:1];
+     [YJLHUD dismissWithDelay:0.2];
         NSLog(@"ZR请求数据成功----%@",responseObject[@"data"][@"zr"]);
         NSLog(@"CZ请求数据成功----%@",responseObject[@"data"][@"cz"]);
         NSLog(@"XZ请求数据成功----%@",responseObject[@"data"][@"xz"]);

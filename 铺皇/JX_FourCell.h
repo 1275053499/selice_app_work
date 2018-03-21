@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class JX_FourModel;
 @interface JX_FourCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *PictureImage;
@@ -27,8 +27,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *QuyulabWidth;
 
 
-
-
-
+@property(nonatomic,strong)JX_FourModel* JX_FourModel;
++ (instancetype)cellWithOrderTableView:(UITableView *)tableView;
 
 @end

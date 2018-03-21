@@ -132,7 +132,7 @@
         }
         
       [YJLHUD showSuccessWithmessage:@"加载成功"];
-      [YJLHUD dismissWithDelay:1];
+      [YJLHUD dismissWithDelay:0.2];
      } failure:^(NSURLSessionDataTask *task, NSError *error)  {
          NSLog(@"error=====%@",error);
          [YJLHUD showErrorWithmessage:@"服务器开小差了，稍等~"];
@@ -264,7 +264,7 @@ else{
                     isSC = !isSC;
                 
                     [YJLHUD showSuccessWithmessage:@"添加收藏成功"];
-                    [YJLHUD dismissWithDelay:1];
+                    [YJLHUD dismissWithDelay:0.2];
                 }
                 
                 else{
@@ -272,7 +272,7 @@ else{
                     NSLog(@"收藏失败");
                    
                     [YJLHUD showErrorWithmessage:@"添加收藏失败"];
-                    [YJLHUD dismissWithDelay:1];
+                    [YJLHUD dismissWithDelay:0.2];
                     [_SCBtn setTitle:@"未收藏" forState:UIControlStateNormal];
                     [_SCBtn setImage:[UIImage imageNamed:@"weishoucan_kongxin"] forState:UIControlStateNormal];
                 }
@@ -310,13 +310,13 @@ else{
                     
                     isSC = !isSC;
                     [YJLHUD showSuccessWithmessage:@"取消收藏成功"];
-                    [YJLHUD dismissWithDelay:1];
+                    [YJLHUD dismissWithDelay:0.2];
                    
                 }
                 else{
                  
                     [YJLHUD showErrorWithmessage:@"取消收藏失败"];
-                    [YJLHUD dismissWithDelay:1];
+                   [YJLHUD dismissWithDelay:0.2];
                     
                     [_SCBtn setTitle:@"收藏" forState:UIControlStateNormal];
                     [_SCBtn setImage:[UIImage imageNamed:@"weishoucan_shixin"] forState:UIControlStateNormal];

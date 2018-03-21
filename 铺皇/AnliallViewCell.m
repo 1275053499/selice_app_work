@@ -32,6 +32,7 @@
     _Anliregin.adjustsFontSizeToFitWidth    = YES;
    
 }
+
 + (instancetype)cellWithOrderTableView:(UITableView *)tableView
 {
     static NSString *ID = @"AnliallViewCell";
@@ -42,8 +43,8 @@
     return cell;
 }
 -(void)setAnlimodel:(Anlimodel *)anlimodel{
-    _anlimodel = anlimodel;
     
+    _anlimodel = anlimodel;
     _Anlititle.text          = anlimodel.Anli_title;//标题
     _Anliregin.text          = anlimodel.Anli_quyu;//区域所在
     _Anlitime.text           = anlimodel.Anli_time;//更新时间

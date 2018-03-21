@@ -84,7 +84,7 @@
                  
                  
                  [YJLHUD showSuccessWithmessage:@"加载成功"];
-                 [YJLHUD dismissWithDelay:1];
+                 [YJLHUD dismissWithDelay:0.2];
                  [self.BGlab setHidden:YES];
              }else{
                  
@@ -131,7 +131,7 @@
                  
                   [self.tableview reloadData];
                  [YJLHUD showSuccessWithmessage:@"加载成功"];
-                 [YJLHUD dismissWithDelay:1];
+                [YJLHUD dismissWithDelay:0.2];
                 [self.BGlab setHidden:YES];
              }else{
                  

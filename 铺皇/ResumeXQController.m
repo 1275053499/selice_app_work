@@ -177,7 +177,7 @@
                      isSC = !isSC;
                      
                      [YJLHUD showSuccessWithmessage:@"取消收藏成功"];
-                     [YJLHUD dismissWithDelay:1];
+                    [YJLHUD dismissWithDelay:0.2];
                  }
                  else{
                     
@@ -561,12 +561,12 @@
 #pragma  -mark 根据不同进入的界面创建不同的按钮
             [self creatPHwhere];
 
-            [YJLHUD dismissWithDelay:1];
+            [YJLHUD dismissWithDelay:0.2];
         }else{
             
             NSLog(@"300--拿不到数据啊");
             [YJLHUD showErrorWithmessage:@"没有更多数据"];
-            [YJLHUD dismissWithDelay:1];
+            [YJLHUD dismissWithDelay:0.2];
         }
     }
          failure:^(NSURLSessionDataTask *task, NSError *error) {

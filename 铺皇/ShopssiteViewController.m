@@ -175,7 +175,7 @@
         if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]) {
 //            NSLog(@"可以拿到数据的");
             [YJLHUD showSuccessWithmessage:@"加载成功"];
-            [YJLHUD dismissWithDelay:1];
+           [YJLHUD dismissWithDelay:0.2];
             for (NSDictionary *dic in responseObject[@"data"][@"values"]){
                 Shopsitemodel *model = [[Shopsitemodel alloc]init];
                  model.Shopsitetitle      = dic[@"title"];
@@ -255,7 +255,7 @@
         if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]) {
 //            NSLog(@"可以拿到数据的");
     
-            [YJLHUD dismissWithDelay:1];
+            [YJLHUD dismissWithDelay:0.2];
             for (NSDictionary *dic in responseObject[@"data"][@"values"]){
                 Shopsitemodel *model     = [[Shopsitemodel alloc]init];
                 model.Shopsitetitle      = dic[@"title"];
@@ -312,26 +312,10 @@
 
 -(UITableViewCell * )tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *cellid = @"cell";
-        
-    ShopsiteViewCell *site_cell         = [tableView dequeueReusableCellWithIdentifier:cellid];
-    if (site_cell == nil) {
-        
-        site_cell                       =[[[NSBundle mainBundle]loadNibNamed:@"ShopsiteViewCell" owner:self options:nil]lastObject];
-    }
-        
-    NSLog(@"!!!!!%ld=????????%ld",self.PHDataArr.count,indexPath.row);
-        Shopsitemodel *model            = [self.PHDataArr objectAtIndex:indexPath.row];
-        
-        site_cell.Shopsitetitle.text    = model.Shopsitetitle;
-        site_cell.Shopsitedescribe.text = model.Shopsitedescribe;
-        site_cell.Shopsitetype.text     = model.Shopsitetype;
-        site_cell.Shopsitequyu.text     = model.Shopsitequyu;
-        site_cell.Shopsitearea.text     = [NSString stringWithFormat:@"%@m²",model.Shopsitearea];
-        site_cell.Shopsiterent.text     = [NSString stringWithFormat:@"%@元/月",model.Shopsiterent];
+        ShopsiteViewCell *site_cell         = [ShopsiteViewCell cellWithOrderTableView:tableView];
+        site_cell.model =[self.PHDataArr objectAtIndex:indexPath.row];
         site_cell.selectionStyle        = UITableViewCellSelectionStyleNone;
-        
-    return site_cell;
+        return site_cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -339,15 +323,14 @@
     return 95;
 }
 
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"%zd点击了一下",indexPath.row);
      self.hidesBottomBarWhenPushed = YES;//如果在push跳转时需要隐藏tabBar
-    CATransition * animation    = [CATransition animation];//初始化
-    animation.duration          = 0.5;    //  时间
-    animation.type              = kCATransitionMoveIn;//覆盖
-    animation.subtype           = kCATransitionFromRight;//右边开始
-    [self.view.window.layer addAnimation:animation forKey:nil];  //  添加动作
+//    CATransition * animation    = [CATransition animation];//初始化
+//    animation.duration          = 0.5;    //  时间
+//    animation.type              = kCATransitionMoveIn;//覆盖
+//    animation.subtype           = kCATransitionFromRight;//右边开始
+//    [self.view.window.layer addAnimation:animation forKey:nil];  //  添加动作
     //    获取店铺唯一id
     Shopsitemodel *model        = [self.PHDataArr objectAtIndex:indexPath.row];
     ShopsiteXQController *ctl   = [[ShopsiteXQController alloc]init];

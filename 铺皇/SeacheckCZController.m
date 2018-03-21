@@ -92,7 +92,7 @@
         
         [_PHDataArr removeAllObjects];
         [YJLHUD showSuccessWithmessage:@"加载成功"];
-        [YJLHUD dismissWithDelay:1];
+       [YJLHUD dismissWithDelay:0.2];
         //        NSLog(@"请求数据成功----%@",responseObject);
         NSLog(@"判断数据=======%@", responseObject[@"code"]);
         
@@ -182,7 +182,7 @@
                 else{
                     
                     [YJLHUD showSuccessWithmessage:@"加载成功"];
-                    [YJLHUD dismissWithDelay:1];
+                    [[YJLHUD dismissWithDelay:0.2];
                     JX_FourModel *model = [[JX_FourModel alloc]init];
                     model.JX_picture    = dic[@"image" ];
                     model.JX_title      = dic[@"name"  ];

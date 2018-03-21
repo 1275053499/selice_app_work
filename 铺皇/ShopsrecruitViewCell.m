@@ -7,7 +7,7 @@
 //
 
 #import "ShopsrecruitViewCell.h"
-
+#import "ShopsrecruitModel.h"
 @implementation ShopsrecruitViewCell
 
 - (void)awakeFromNib {
@@ -29,6 +29,29 @@
      _Companyeducation.adjustsFontSizeToFitWidth = YES;
      _Companysalary.adjustsFontSizeToFitWidth = YES;
 }
+
++ (instancetype)cellWithOrderTableView:(UITableView *)tableView
+{
+    static NSString *ID = @"ShopsrecruitViewCell";
+    ShopsrecruitViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cell == nil) {
+        cell=[[NSBundle mainBundle] loadNibNamed:ID owner:nil options:0][0];
+    }
+    return cell;
+}
+
+-(void)setModel:(ShopsrecruitModel *)model{
+    _model = model;
+    _CompanyJobname.text = [NSString stringWithFormat:@"职位:%@",model.CompanyJobname];
+    _CompanyTimers.text  = [NSString stringWithFormat:@"更新时间:%@",model.CompanyTimers];
+    _Companyname.text    = [NSString stringWithFormat:@"店名:%@",model.Companyname];
+    _CompanyArea.text    = [NSString stringWithFormat:@"%@",model.CompanyArea];
+    _CompanySuffer.text  = [NSString stringWithFormat:@"%@",model.CompanySuffer];
+    _Companyeducation.text = [NSString stringWithFormat:@"%@",model.Companyeducation];
+    _Companysalary.text  = [NSString stringWithFormat:@"%@/月",model.Companysalary];
+}
+
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

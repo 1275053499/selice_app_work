@@ -138,7 +138,7 @@
         
        [_PHArr_caseAll removeAllObjects];
        [YJLHUD showSuccessWithmessage:@"加载成功"];
-       [YJLHUD dismissWithDelay:1];
+      [YJLHUD dismissWithDelay:0.2];
        [[FirstcaseData sharecaseData]deletedallcaseData];
         
         NSLog(@"判断数据=======%@", responseObject[@"code"]);
@@ -220,7 +220,7 @@
         if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]) {
             NSLog(@"可以拿到数据的");
             
-            [YJLHUD dismissWithDelay:1];
+           [YJLHUD dismissWithDelay:0.2];
             for (NSDictionary *dic in responseObject[@"values"]){
 
                 Anlimodel *model = [[Anlimodel alloc]init];
@@ -380,10 +380,10 @@
     NSLog(@"乱点击什么啊======");
     self.hidesBottomBarWhenPushed = YES;//如果在push跳转时需要隐藏tabBar
     //    获取店铺唯一id
-    Anlimodel *model = [_PHArr_caseAll objectAtIndex:indexPath.row];
+    Anlimodel *model        = _PHArr_caseAll[indexPath.row];
     DetailedController *ctl =[[DetailedController alloc]init];
-    ctl.shopsubid = model.Anli_subid;
-    ctl.shopcode  = @"transfer";
+    ctl.shopsubid           = model.Anli_subid;
+    ctl.shopcode            = @"transfer";
     NSLog(@"店铺🆔%@",ctl.shopsubid);
     [self.navigationController pushViewController:ctl animated:YES];
     self.hidesBottomBarWhenPushed = YES;//1.并在push后设置self.hidesBottomBarWhenPushed=YES;2.这样back回来的时候，tabBar不会会恢复正常显示。

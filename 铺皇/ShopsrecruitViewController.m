@@ -190,7 +190,7 @@
         [[RecruitData sharerecruitData]deletedsrecruitData];
         [PHArr removeAllObjects];
         [YJLHUD showSuccessWithmessage:@"加载成功"];
-        [YJLHUD dismissWithDelay:1];
+        [YJLHUD dismissWithDelay:0.2];
         
 //        NSLog(@"请求数据成功----%@",responseObject);
 //        NSLog(@"判断数据=======%@", responseObject[@"code"]);
@@ -275,7 +275,7 @@
          if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]) {
 //            NSLog(@"可以拿到数据的");
              
-             [YJLHUD dismissWithDelay:1];
+             [YJLHUD dismissWithDelay:0.2];
             for (NSDictionary *dic in responseObject[@"data"]){
                 ShopsrecruitModel *model = [[ShopsrecruitModel alloc]init];
                 model.CompanyJobname    = dic[@"category"];
@@ -335,21 +335,10 @@
 
 -(UITableViewCell * )tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *cellid = @"cell";
-    ShopsrecruitViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
-    if (cell == nil) {
-        cell =[[[NSBundle mainBundle]loadNibNamed:@"ShopsrecruitViewCell" owner:self options:nil]lastObject];
-    }
-
+    
+    ShopsrecruitViewCell *cell = [ShopsrecruitViewCell cellWithOrderTableView:tableView];
     NSLog(@"!!!!!%ld=????????%ld",PHArr.count,indexPath.row);
-    ShopsrecruitModel *model = [PHArr objectAtIndex:indexPath.row];
-    cell.CompanyJobname.text = [NSString stringWithFormat:@"职位:%@",model.CompanyJobname];
-    cell.CompanyTimers.text  = [NSString stringWithFormat:@"更新时间:%@",model.CompanyTimers];
-    cell.Companyname.text    = [NSString stringWithFormat:@"店名:%@",model.Companyname];
-    cell.CompanyArea.text    = [NSString stringWithFormat:@"%@",model.CompanyArea];
-    cell.CompanySuffer.text  = [NSString stringWithFormat:@"%@",model.CompanySuffer];
-    cell.Companyeducation.text = [NSString stringWithFormat:@"%@",model.Companyeducation];
-    cell.Companysalary.text  = [NSString stringWithFormat:@"%@/月",model.Companysalary];
+    cell.model = PHArr[indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }

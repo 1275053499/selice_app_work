@@ -1254,7 +1254,7 @@
             if ( [recruits integerValue] > 0) {
                 
                 [YJLHUD showSuccessWithmessage:@"查询成功"];
-                [YJLHUD dismissWithDelay:1];
+               [YJLHUD dismissWithDelay:0.2];
 
                 [self upload];
                 

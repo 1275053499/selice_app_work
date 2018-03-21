@@ -876,7 +876,7 @@ enum {
 //            NSLog(@"数据状态:%@", responseObject[@"code"]);
             if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]){
                 [YJLHUD showSuccessWithmessage:@"加载成功"];
-                [YJLHUD dismissWithDelay:1];
+               [YJLHUD dismissWithDelay:0.2];
                 NSLog(@"可以拿到数据的");
                 for (NSDictionary *dic in responseObject[@"data"][@"zr"]){
                     

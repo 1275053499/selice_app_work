@@ -180,7 +180,7 @@
         
         [self.PHDataArr removeAllObjects];
       [YJLHUD showSuccessWithmessage:@"加载成功"];
-      [YJLHUD dismissWithDelay:1];
+      [YJLHUD dismissWithDelay:0.2];
         [[RecommendallData shareRecommendDataBase]deletedRecommendalldata];
         
         //        NSLog(@"请求数据成功----%@",responseObject);
@@ -267,7 +267,7 @@
         if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]) {
             NSLog(@"可以拿到数据的");
           
-            [YJLHUD dismissWithDelay:1];
+           [YJLHUD dismissWithDelay:0.2];
             for (NSDictionary *dic in responseObject[@"data"]){
                 JX_FourModel *model = [[JX_FourModel alloc]init];
                 model.JX_picture    = dic[@"images"];

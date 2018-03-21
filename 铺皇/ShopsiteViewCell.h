@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class Shopsitemodel;
 @interface ShopsiteViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *Shopsitetitle;//标题
 @property (weak, nonatomic) IBOutlet UILabel *Shopsitedescribe;//描述
@@ -17,6 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *Shopsitearea;//区域
 @property (nonatomic, strong)       NSString *Shopsitesubid;//店铺id
 
-
-
+@property (nonatomic, strong)       Shopsitemodel *model;
++ (instancetype)cellWithOrderTableView:(UITableView *)tableView;
 @end

@@ -217,7 +217,7 @@
             NSLog(@"可以拿到数据的");
             
             [YJLHUD showSuccessWithmessage:@"加载成功"];
-            [YJLHUD dismissWithDelay:1];
+           [YJLHUD dismissWithDelay:0.2];
             for (NSDictionary *dic in responseObject[@"values"]){
                 
                 Featuremodel *model = [[Featuremodel alloc]init];
@@ -302,7 +302,7 @@
 //        NSLog(@"判断数据=======%@", responseObject[@"code"]);
         if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]) {
            
-            [YJLHUD dismissWithDelay:1];
+            [YJLHUD dismissWithDelay:0.2];
 //            NSLog(@"可以拿到数据的");
             for (NSDictionary *dic in responseObject[@"values"]){
                 Featuremodel *model = [[Featuremodel alloc]init];
