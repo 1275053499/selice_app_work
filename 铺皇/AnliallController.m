@@ -136,7 +136,7 @@
   
    self.task = [manager GET:str parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
-        [_PHArr_caseAll removeAllObjects];
+       [_PHArr_caseAll removeAllObjects];
        [YJLHUD showSuccessWithmessage:@"加载成功"];
        [YJLHUD dismissWithDelay:1];
        [[FirstcaseData sharecaseData]deletedallcaseData];
@@ -185,8 +185,6 @@
               [_CasetableView reloadData];
             
         });
-        
-        
      }
       failure:^(NSURLSessionDataTask *task, NSError *error) {
                      NSLog(@"请求数据失败----%@",error);
@@ -345,8 +343,6 @@
     }];
 }
 
-
-
 #pragma  -mark - 手势返回
 - (void)recognizer:(UISwipeGestureRecognizer*)recognizer{
     
@@ -372,35 +368,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    if (_PHArr_caseAll.count == 0){
-        static NSString *cellID = @"cellname";
-        AnliallViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-        
-        if (cell == nil) {
-            cell = [[[NSBundle mainBundle]loadNibNamed:@"AnliallViewCell" owner:self options:nil]lastObject];
-            cell.selectionStyle  = UITableViewCellSelectionStyleNone;
-        }
+        AnliallViewCell *cell   = [AnliallViewCell cellWithOrderTableView:tableView];
+        cell.anlimodel          = _PHArr_caseAll[indexPath.row];
         return cell;
-    }
-    else{
-        static NSString *cellID = @"cellname";
-        AnliallViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-        
-        if (cell == nil) {
-            cell = [[[NSBundle mainBundle]loadNibNamed:@"AnliallViewCell" owner:self options:nil]lastObject];
-            cell.selectionStyle  = UITableViewCellSelectionStyleNone;
-        }
-    
-        Anlimodel *model             = [_PHArr_caseAll objectAtIndex:indexPath.row];
-        cell.Anlititle.text          = model.Anli_title;//标题
-        cell.Anliregin.text          = model.Anli_quyu;//区域所在
-        cell.Anlitime.text           = model.Anli_time;//更新时间
-        cell.Anlitage.text           = model.Anli_tag;//餐饮美食
-        cell.Anliarea.text           = [NSString stringWithFormat:@"%@m²",model.Anli_area];//店铺面积
-        cell.Anliprice.text          = [NSString stringWithFormat:@"%@元/月",model.Anli_price];//店铺租金
-        [cell.Anliimgview sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",model.Anli_picture]] placeholderImage:[UIImage imageNamed:@"nopicture"]];//店铺图片
-        return cell;
-    }
 }
 
 #pragma mark点击事件

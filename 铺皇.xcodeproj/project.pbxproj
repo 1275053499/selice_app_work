@@ -468,6 +468,8 @@
 		444F54B71F8B25AC0016E7EF /* QYDemoBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 444F54B61F8B25AC0016E7EF /* QYDemoBadgeView.m */; };
 		44505BB31F038925001BAFCD /* InformaZZCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44505BB11F038925001BAFCD /* InformaZZCell.m */; };
 		44505BB41F038925001BAFCD /* InformaZZCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44505BB21F038925001BAFCD /* InformaZZCell.xib */; };
+		4450BF852061F9E300E27EA5 /* AFNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450BF842061F9E300E27EA5 /* AFNetworkHelper.m */; };
+		4450BF882061FA6000E27EA5 /* AFAppDotNetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4450BF872061FA6000E27EA5 /* AFAppDotNetAPIClient.m */; };
 		44513D4B1FA5AC9E00E211F4 /* 日常管理@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44513D4A1FA5AC9E00E211F4 /* 日常管理@2x.png */; };
 		44513D501FA7403300E211F4 /* Myserviceresource.m in Sources */ = {isa = PBXBuildFile; fileRef = 44513D4E1FA7403300E211F4 /* Myserviceresource.m */; };
 		44542BD41FCFF83F008E0901 /* 合作视频反馈@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44542BCF1FCFF831008E0901 /* 合作视频反馈@3x.png */; };
@@ -1565,6 +1567,10 @@
 		44505BB01F038925001BAFCD /* InformaZZCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformaZZCell.h; sourceTree = "<group>"; };
 		44505BB11F038925001BAFCD /* InformaZZCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformaZZCell.m; sourceTree = "<group>"; };
 		44505BB21F038925001BAFCD /* InformaZZCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InformaZZCell.xib; sourceTree = "<group>"; };
+		4450BF832061F9E300E27EA5 /* AFNetworkHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFNetworkHelper.h; sourceTree = "<group>"; };
+		4450BF842061F9E300E27EA5 /* AFNetworkHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFNetworkHelper.m; sourceTree = "<group>"; };
+		4450BF862061FA6000E27EA5 /* AFAppDotNetAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFAppDotNetAPIClient.h; sourceTree = "<group>"; };
+		4450BF872061FA6000E27EA5 /* AFAppDotNetAPIClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFAppDotNetAPIClient.m; sourceTree = "<group>"; };
 		44513D4A1FA5AC9E00E211F4 /* 日常管理@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "日常管理@2x.png"; sourceTree = "<group>"; };
 		44513D4D1FA7403300E211F4 /* Myserviceresource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Myserviceresource.h; sourceTree = "<group>"; };
 		44513D4E1FA7403300E211F4 /* Myserviceresource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Myserviceresource.m; sourceTree = "<group>"; };
@@ -3941,6 +3947,17 @@
 			name = "相关文件";
 			sourceTree = "<group>";
 		};
+		4450BF822061F9A000E27EA5 /* 网络处理事件 */ = {
+			isa = PBXGroup;
+			children = (
+				4450BF862061FA6000E27EA5 /* AFAppDotNetAPIClient.h */,
+				4450BF872061FA6000E27EA5 /* AFAppDotNetAPIClient.m */,
+				4450BF832061F9E300E27EA5 /* AFNetworkHelper.h */,
+				4450BF842061F9E300E27EA5 /* AFNetworkHelper.m */,
+			);
+			name = "网络处理事件";
+			sourceTree = "<group>";
+		};
 		44513D4C1FA73FF100E211F4 /* 客户资源 */ = {
 			isa = PBXGroup;
 			children = (
@@ -5993,6 +6010,7 @@
 		5E7543991E9B55B300E97750 /* 铺皇 */ = {
 			isa = PBXGroup;
 			children = (
+				4450BF822061F9A000E27EA5 /* 网络处理事件 */,
 				443724E81EEE9DF400951218 /* 铺皇.entitlements */,
 				5E7543D11E9B6A2200E97750 /* 第三方文件 */,
 				5E650A9E1E9CAD730007786B /* 各种头文件 */,
@@ -7235,6 +7253,7 @@
 				440963811F53CEB900E38D97 /* Toprightcornertroller.m in Sources */,
 				44FC80391EDEB3AF00CE1F12 /* ZWaddressController.m in Sources */,
 				441489A91F347CCB00C8EADB /* oldpassword.m in Sources */,
+				4450BF882061FA6000E27EA5 /* AFAppDotNetAPIClient.m in Sources */,
 				44F750DA1EC16C54005AC866 /* MyAnnptation.m in Sources */,
 				44EE301A1ED40BAC00784696 /* MJRefreshAutoNormalFooter.m in Sources */,
 				4480E2651ECC328C0070D6F3 /* UIButton+WebCache.m in Sources */,
@@ -7375,6 +7394,7 @@
 				44EE301B1ED40BAC00784696 /* MJRefreshAutoStateFooter.m in Sources */,
 				44FC84C41ED827E8002EEE24 /* ZHCustomBtn.m in Sources */,
 				440809AF1ED6C0E70016A428 /* ZRturnController.m in Sources */,
+				4450BF852061F9E300E27EA5 /* AFNetworkHelper.m in Sources */,
 				44305C6A1F57F7A70014548B /* SiftareaData.m in Sources */,
 				44EE302E1ED40BD000784696 /* MJRefreshStateHeader.m in Sources */,
 				44FC6C7D1EF8B3F800D08977 /* Newmodel.m in Sources */,

@@ -85,6 +85,7 @@
 #define Hostrecruitpath      @"https://ph.chinapuhuang.com/API.php/recruitDetails"       //招聘下载（招聘中心）
 
 #define Hostmaplistpath      @"https://ph.chinapuhuang.com/API.php/maplocation"         //地图选铺
+//#define Hostmaplistpath      @"https://ph.chinapuhuang.com/API.php/map_location"         //地图选铺
 
                             #pragma -mark 详情信息 收藏
 #define Hostzrcollectpath      @"https://ph.chinapuhuang.com/API.php/zrcollect"         //转让收藏

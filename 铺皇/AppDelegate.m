@@ -235,6 +235,7 @@
     [WXApi registerApp:@"wx9f7d4b17e069bbd4"];
     NSLog(@"微信注册states:%d",[WXApi registerApp:@"wx9f7d4b17e069bbd4"]);
     return YES;
+    
 }
 
 #pragma mark 远程推送

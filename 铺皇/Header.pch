@@ -12,6 +12,7 @@
 #import "MBProgressHUD.h"                               //HUD提示
 #import "SVProgressHUD.h"
 #import "YJLHUD.h"
+#import "AFNetworkHelper.h"
 
 #import "UIImageView+WebCache.h"                        //网络图片缓存
 #import "SDWebImageManager.h"                           //网络图片缓存

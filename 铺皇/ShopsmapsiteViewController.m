@@ -836,6 +836,7 @@ enum {
 //                NSLog(@"一样的 旧：%@  新：%@",OldLoadkey,NewLoadkey);
 //                NSLog(@"一样的");
             }
+            
             else{
                 
                 [self.mapView removeAnnotations:self.coordinates];

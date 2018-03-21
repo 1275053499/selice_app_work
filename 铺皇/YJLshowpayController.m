@@ -947,6 +947,7 @@
     }
 }
 
+
 #pragma -mark 支付宝支付的接口
 -(void)sendAlipy{
     
@@ -1018,51 +1019,57 @@
 
 #pragma mark - 微信支付方法
 - (void)sendWX{
-    
-     [YJLHUD showMyselfBackgroundColor:nil ForegroundColor:nil BackgroundLayerColor:nil message:@"连接微信...."];
-    total = [NSString stringWithFormat:@"%.2f",paystr_1.floatValue+paystr_2.floatValue+paystr_3.floatValue+paystr_4.floatValue+paystr_5.floatValue+paystr_6.floatValue];
-    AFHTTPSessionManager *manager       = [AFHTTPSessionManager manager];
-    manager.responseSerializer          = [AFJSONResponseSerializer serializer];
-    manager.requestSerializer.timeoutInterval = 10.0;
-    NSLog(@"支付金额:%@",total);
-    
-    NSDictionary *params =    @{
-                                     @"total_fee":total
-                                };
-    [manager POST:payWechat parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        [YJLHUD dismiss];
-        NSLog(@"返回数据%@",responseObject);
-        //判断返回的许可
-        if ([responseObject[@"result_code"] isEqualToString:@"SUCCESS"] && [responseObject[@"return_code"] isEqualToString:@"SUCCESS"]) {
-            //发起微信支付，设置参数
-            PayReq *request     =                   [[PayReq alloc] init];
-            request.openID      = responseObject    [@"appid"           ];
-            request.partnerId   = responseObject    [@"mch_id"          ];
-            request.prepayId    = responseObject    [@"prepay_id"       ];
-            request.package     =                    @"Sign=WXPay"      ;
-            request.nonceStr    = responseObject    [@"nonce_str"       ];
-            
-            NSDate   * datenow  = [NSDate date];
-            NSString * timeSp   = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]];
-            UInt32 timeStamp    = [timeSp intValue];
-            request.timeStamp   = timeStamp;
-            DataMD5 *md5 = [[DataMD5 alloc] init];
-            request.sign = [md5 createMD5SingForPay:request.openID partnerid:request.partnerId prepayid:request.prepayId package:request.package noncestr:request.nonceStr timestamp:request.timeStamp];
-//        NSLog(@"%@\n%@\n%@\n%@\n%d\n%@",request.partnerId,request.prepayId,request.package,request.nonceStr,request.timeStamp,request.sign);
-             // 调用微信
-            [WXApi sendReq:request];
-            
-        }else{
-            
-             NSLog(@"参数不正确，请检查参数");
-        }
+    if ([WXApi isWXAppInstalled]) {
         
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [YJLHUD showMyselfBackgroundColor:nil ForegroundColor:nil BackgroundLayerColor:nil message:@"连接微信...."];
+        total = [NSString stringWithFormat:@"%.2f",paystr_1.floatValue+paystr_2.floatValue+paystr_3.floatValue+paystr_4.floatValue+paystr_5.floatValue+paystr_6.floatValue];
+        AFHTTPSessionManager *manager       = [AFHTTPSessionManager manager];
+        manager.responseSerializer          = [AFJSONResponseSerializer serializer];
+        manager.requestSerializer.timeoutInterval = 10.0;
+        NSLog(@"支付金额:%@",total);
         
-        NSLog(@"服务器渣渣   ");
-        [YJLHUD showErrorWithmessage:@"网络数据连接失败"];
-        [YJLHUD dismissWithDelay:2.0f];
-    }];
+        NSDictionary *params =    @{
+                                        @"total_fee":total
+                                    };
+        [manager POST:payWechat parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+            [YJLHUD dismiss];
+            NSLog(@"返回数据%@",responseObject);
+            //判断返回的许可
+            if ([responseObject[@"result_code"] isEqualToString:@"SUCCESS"] && [responseObject[@"return_code"] isEqualToString:@"SUCCESS"]) {
+                //发起微信支付，设置参数
+                PayReq *request     =                   [[PayReq alloc] init];
+                request.openID      = responseObject    [@"appid"           ];
+                request.partnerId   = responseObject    [@"mch_id"          ];
+                request.prepayId    = responseObject    [@"prepay_id"       ];
+                request.package     =                    @"Sign=WXPay"      ;
+                request.nonceStr    = responseObject    [@"nonce_str"       ];
+                
+                NSDate   * datenow  = [NSDate date];
+                NSString * timeSp   = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]];
+                UInt32 timeStamp    = [timeSp intValue];
+                request.timeStamp   = timeStamp;
+                DataMD5 *md5 = [[DataMD5 alloc] init];
+                request.sign = [md5 createMD5SingForPay:request.openID partnerid:request.partnerId prepayid:request.prepayId package:request.package noncestr:request.nonceStr timestamp:request.timeStamp];
+                //        NSLog(@"%@\n%@\n%@\n%@\n%d\n%@",request.partnerId,request.prepayId,request.package,request.nonceStr,request.timeStamp,request.sign);
+                // 调用微信
+                [WXApi sendReq:request];
+                
+            }else{
+                
+                NSLog(@"参数不正确，请检查参数");
+            }
+            
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            
+            NSLog(@"服务器渣渣   ");
+            [YJLHUD showErrorWithmessage:@"网络数据连接失败"];
+            [YJLHUD dismissWithDelay:2.0f];
+        }];
+    }
+    else{
+        [YJLHUD showErrorWithmessage:@"请先安装微信客户端"];
+        [YJLHUD dismissWithDelay:1.0f];
+    }
 }
 
 #pragma -mark 返回

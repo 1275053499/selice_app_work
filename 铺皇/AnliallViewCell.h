@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class Anlimodel;
 @interface AnliallViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *Anliimgview;//图片
 @property (weak, nonatomic) IBOutlet UILabel    *Anlititle;//标题
@@ -16,5 +16,8 @@
 @property (weak, nonatomic) IBOutlet UILabel    *Anliregin;//区域
 @property (weak, nonatomic) IBOutlet UILabel    *Anlitime;//更新时间
 @property (weak, nonatomic) IBOutlet UILabel    *Anliprice;//转让费
+
+@property(nonatomic,strong)Anlimodel* anlimodel;
++ (instancetype)cellWithOrderTableView:(UITableView *)tableView;
 
 @end
