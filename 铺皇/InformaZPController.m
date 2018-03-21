@@ -105,7 +105,7 @@
     [manager POST: InformaZRpath parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"入境:%@",InformaZRpath);
         
-        [YJLHUD dismissWithDelay:1];
+      [YJLHUD dismissWithDelay:0.2];
         //        NSLog(@"请求成功咧");
         //        NSLog(@"数据:%@", responseObject[@"data"]);
         if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]){

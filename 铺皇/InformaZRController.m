@@ -102,7 +102,7 @@
     [manager POST: InformaZRpath parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"入境:%@",InformaZRpath);
     
-        [YJLHUD dismissWithDelay:1];
+        [YJLHUD dismissWithDelay:0.2];
 //        NSLog(@"请求成功咧");
 //        NSLog(@"数据:%@", responseObject[@"data"]);
         if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]){
@@ -110,7 +110,7 @@
             
             for (NSDictionary *dic in responseObject[@"data"]){
                 
-                informaZRmodel *model = [[informaZRmodel alloc]init];
+                informaZRmodel *model   = [[informaZRmodel alloc]init];
                 model.InfoZR_picture    = dic[@"images"];
                 model.InfoZR_title      = dic[@"title"      ];
                 model.InfoZR_time       = dic[@"time"       ];
@@ -149,7 +149,7 @@
 #pragma  -mark下拉刷新
 -(void)loaddataZR{
     [self.InformaZRtableView.mj_footer resetNoMoreData];
-    PHpage = 0;
+    PHpage                              = 0;
     [self.BGlab setHighlighted:YES];
     NSLog(@"即将下来刷新数据数组当前有%ld个数据",_PHArr.count);
      [YJLHUD showMyselfBackgroundColor:nil ForegroundColor:nil BackgroundLayerColor:nil message:@"加载中..."];
@@ -159,7 +159,7 @@
     NSDictionary *params = @{
                                 @"publisher":[[YJLUserDefaults shareObjet]getObjectformKey:YJLuser],
                                 @"page":[NSString stringWithFormat:@"%d",PHpage]
-                                };
+                            };
   [manager POST: InformaZRpath parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
       NSLog(@"入境:%@",InformaZRpath);
 //      NSLog(@"Lsp～转让发布～ 🐷,赶紧加载数据啦");
@@ -173,7 +173,7 @@
           
           for (NSDictionary *dic in responseObject[@"data"]){
                       
-                      informaZRmodel *model = [[informaZRmodel alloc]init];
+                      informaZRmodel *model   = [[informaZRmodel alloc]init];
                       model.InfoZR_picture    = dic[@"images"];
                       model.InfoZR_title      = dic[@"title"      ];
                       model.InfoZR_time       = dic[@"time"       ];
@@ -192,7 +192,7 @@
                   //code 309
                   NSLog(@"不可以拿到数据的");
                   [self.BGlab setHidden:NO];
-                  self.BGlab.text = @"没有更多数据";
+                  self.BGlab.text       = @"没有更多数据";
                   [YJLHUD showErrorWithmessage:@"没有更多数据"];
                   [YJLHUD dismissWithDelay:2];
                   [self.InformaZRtableView.mj_footer endRefreshingWithNoMoreData];
@@ -205,7 +205,7 @@
     
       NSLog(@"error=====%@",error);
       [self.BGlab setHidden:NO];
-       self.BGlab.text = @"网络数据连接失败";
+       self.BGlab.text                  = @"网络数据连接失败";
       [self.InformaZRtableView.mj_header endRefreshing];//停止刷新
       [YJLHUD showErrorWithmessage:@"网络数据连接失败"];
       [YJLHUD dismissWithDelay:2];
@@ -224,7 +224,7 @@
     [self.view addSubview:self.InformaZRtableView];
     
     //    无数据的提示
-    self.BGlab                   = [[UILabel alloc]init];
+    self.BGlab                  = [[UILabel alloc]init];
     [self.InformaZRtableView addSubview:self.BGlab];
     self.BGlab.font             = [UIFont systemFontOfSize:12.0f];
     self.BGlab.textColor        = kTCColor(161, 161, 161);

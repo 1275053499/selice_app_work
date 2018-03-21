@@ -90,7 +90,7 @@
          NSLog(@"数据:%@",  responseObject[@"data"]);
         if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]){
             [YJLHUD showWithmessage:@"数据获取成功"];
-            [YJLHUD dismissWithDelay:1];
+           [YJLHUD dismissWithDelay:0.2];
             NSLog(@"可以拿到数据的");
             for (NSDictionary *dic in responseObject[@"data"]){
             

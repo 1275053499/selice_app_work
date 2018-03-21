@@ -156,14 +156,18 @@
 #pragma -mark创建tableview
 -(void)creattableview{
     
-    self.tableview  = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, KMainScreenWidth, KMainScreenHeight) style:UITableViewStyleGrouped];
-    self.tableview.showsVerticalScrollIndicator =NO;
-    self.tableview.separatorStyle=UITableViewCellSeparatorStyleNone;//去掉默认下划线
-    self.tableview.estimatedRowHeight=200; //预估行高 可以提高性能
-    self.tableview.rowHeight = 88;
-    self.tableview.dataSource    = self;
-    self.tableview.delegate      = self;
+    self.tableview  = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, KMainScreenWidth, KMainScreenHeight-64) style:UITableViewStyleGrouped];
+    self.tableview.separatorStyle       =UITableViewCellSeparatorStyleNone;//去掉默认下划线
+    self.tableview.dataSource           = self;
+    self.tableview.delegate             = self;
     [self.view addSubview:self.tableview];
+    if (@available(iOS 11.0, *)) {
+        self.tableview.estimatedSectionHeaderHeight = 9;
+        self.tableview.estimatedSectionFooterHeight = 0;
+        self.tableview.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
     
     //注册表格单元
     [self.tableview registerClass:[RecordViewCell class] forCellReuseIdentifier:recordIndentifier];
@@ -183,7 +187,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    NSLog(@"%ld",self.arrModel.count);
+//    NSLog(@"%ld",self.arrModel.count);
     return self.arrModel.count;
 }
 
@@ -192,11 +196,11 @@
     return 0.01f;
 }
 
+
 //段尾高度
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     
     RecordModel *model = _arrModel[section];
-
     int integer = (int)model.image.count / NumberRow;
     int remainder = model.image.count % NumberRow;
     if (remainder>0) {
@@ -258,9 +262,9 @@
     
     //取出模型
     RecordModel *model = self.arrModel[indexPath.section];
-    NSLog(@"%@",model.nick  );
-    NSLog(@"%@",model.record);
-    NSLog(@"%@",model.times );
+//    NSLog(@"%@",model.nick  );
+//    NSLog(@"%@",model.record);
+//    NSLog(@"%@",model.times );
 
     RecordViewCell *cell = [self.tableview dequeueReusableCellWithIdentifier:recordIndentifier];
     //传递模型给cell
@@ -277,8 +281,7 @@
 {
     
     //取出模型
-    RecordModel *Model = self.arrModel[indexPath.row];
-    
+    RecordModel *Model = self.arrModel[indexPath.section];
     return    Model.cellHeight ;
 }
 

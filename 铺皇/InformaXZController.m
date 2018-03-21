@@ -104,7 +104,7 @@
     [manager POST:InformaCZpath parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSLog(@"Lsp～出租发布～ 🐷,赶紧加载数据啦");
-        [YJLHUD dismissWithDelay:1];
+       [YJLHUD dismissWithDelay:0.2];
         NSLog(@"请求成功咧");
         NSLog(@"数据:%@", responseObject[@"data"]);
         
@@ -169,7 +169,7 @@
         NSLog(@"Lsp～选址发布～ 🐷,赶紧加载数据啦3333333");
         [_PHArr removeAllObjects];
         [YJLHUD showSuccessWithmessage:@"加载成功"];
-        [YJLHUD dismissWithDelay:1];
+        [YJLHUD dismissWithDelay:0.2];
         if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]){
             NSLog(@"可以拿到数据的");
       

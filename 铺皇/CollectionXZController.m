@@ -87,7 +87,7 @@
         NSLog(@"Lsp～选址收藏 ～ 🐷,赶紧加载数据啦");
         [_PHArr removeAllObjects];
         [YJLHUD showSuccessWithmessage:@"加载成功"];
-        [YJLHUD dismissWithDelay:1];
+        [YJLHUD dismissWithDelay:0.2];
         NSLog(@"请求成功咧");
         NSLog(@"数据:%@", responseObject[@"data"]);
         NSLog(@"数据:%@", responseObject[@"code"]);

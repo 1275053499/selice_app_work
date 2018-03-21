@@ -182,7 +182,7 @@
                 else{
                     
                     [YJLHUD showSuccessWithmessage:@"加载成功"];
-                    [[YJLHUD dismissWithDelay:0.2];
+                    [YJLHUD dismissWithDelay:0.2];
                     JX_FourModel *model = [[JX_FourModel alloc]init];
                     model.JX_picture    = dic[@"image" ];
                     model.JX_title      = dic[@"name"  ];
