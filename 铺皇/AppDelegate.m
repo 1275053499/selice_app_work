@@ -141,6 +141,9 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // 监控网络状态
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    
 #pragma -mark 不能加入2个main启动视图windows 不然分享功能有问题 start
 //    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 //    self.window.backgroundColor = [UIColor whiteColor];

@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel    *Anliprice;//转让费
 
 @property(nonatomic,strong)Anlimodel* anlimodel;
+
 + (instancetype)cellWithOrderTableView:(UITableView *)tableView;
 
 @end

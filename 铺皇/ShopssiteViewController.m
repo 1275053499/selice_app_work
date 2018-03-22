@@ -182,8 +182,8 @@
                     Shopsitemodel *model = [[Shopsitemodel alloc]init];
                     model.Shopsitetitle      = dic[@"title"];
                     model.Shopsitedescribe   = dic[@"detail"];
-                    model.Shopsitetype       = dic[@"type"];
-                    model.Shopsitearea       = dic[@"areas"];
+                    model.Shopsitetype       = dic[@"type"  ];
+                    model.Shopsitearea       = dic[@"areas" ];
                     model.Shopsiterent       = dic[@"rent"];
                     model.Shopsitequyu       = dic[@"districter"];
                     model.Shopsitesubid      = dic[@"subid"];

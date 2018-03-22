@@ -10,7 +10,8 @@
 
 @interface Anlimodel : NSObject
 
-@property (nonatomic,strong) NSString *Anli_picture;
+@property (nonatomic,strong) NSString *Anli_picture;//高清图
+@property (nonatomic,strong) NSString *anlismall_picture;//低清图
 @property (nonatomic,strong) NSString *Anli_title;
 @property (nonatomic,strong) NSString *Anli_quyu;
 @property (nonatomic,strong) NSString *Anli_time;
@@ -18,5 +19,7 @@
 @property (nonatomic,strong) NSString *Anli_area;
 @property (nonatomic,strong) NSString *Anli_price;
 @property (nonatomic,strong) NSString *Anli_subid;
+
+@property (nonatomic,strong) NSString *originalImage;
 
 @end
