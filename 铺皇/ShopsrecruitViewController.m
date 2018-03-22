@@ -194,8 +194,14 @@
         
 //        NSLog(@"请求数据成功----%@",responseObject);
 //        NSLog(@"判断数据=======%@", responseObject[@"code"]);
+
+        
+     //移到异步线程做
+     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+         //1、字典转模型
+         //2、计算每个model的数据，布局参数等。
          if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]) {
-            NSLog(@"可以拿到数据的");
+             NSLog(@"可以拿到数据的");
              for (NSDictionary *dic in responseObject[@"data"]){
                  ShopsrecruitModel *model = [[ShopsrecruitModel alloc]init];
                  model.CompanyJobname    = dic[@"category"];
@@ -211,31 +217,31 @@
                  [PHArr addObject:model];
                  
              }
-            NSLog(@" ZP加载后现在总请求到数据有%ld个",PHArr.count);
-            self.Shopsrecruittableview.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-            [self.BGlab setHidden:YES];
+             NSLog(@" ZP加载后现在总请求到数据有%ld个",PHArr.count);
+             self.Shopsrecruittableview.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+             [self.BGlab setHidden:YES];
              //  后台执行：
              dispatch_async(dispatch_get_global_queue(0, 0), ^{
                  [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"ZPisFirstCome"];//设置下一次不走这里了
                  [[NSUserDefaults standardUserDefaults] synchronize];
              });
-        }else{
-            
-            NSLog(@"300--拿不到数据啊");
-            
-            [self.BGlab setHidden:NO];
-            self.BGlab.text             = @"没有更多数据";
-            self.Shopsrecruittableview.separatorStyle = UITableViewCellSeparatorStyleNone;
-            [YJLHUD showErrorWithmessage:@"没有更多数据"];
-            [YJLHUD dismissWithDelay:1];
-            [self.Shopsrecruittableview.mj_footer endRefreshingWithNoMoreData];
-        }
-        
+         }else{
+             
+             NSLog(@"300--拿不到数据啊");
+             
+             [self.BGlab setHidden:NO];
+             self.BGlab.text             = @"没有更多数据";
+             self.Shopsrecruittableview.separatorStyle = UITableViewCellSeparatorStyleNone;
+             [YJLHUD showErrorWithmessage:@"没有更多数据"];
+             [YJLHUD dismissWithDelay:1];
+             [self.Shopsrecruittableview.mj_footer endRefreshingWithNoMoreData];
+         }
+         dispatch_async(dispatch_get_main_queue(), ^{
+             //3、回到主线程，刷新tableview等
+             [self. Shopsrecruittableview reloadData];
+         });
+     });
      
-        // 主线程执行：
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self. Shopsrecruittableview reloadData];
-        });
         [self.Shopsrecruittableview .mj_header endRefreshing];
     }
     failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -272,46 +278,52 @@
         
 //        NSLog(@"请求数据成功----%@",responseObject);
 //        NSLog(@"判断数据=======%@", responseObject[@"code"]);
-         if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]) {
-//            NSLog(@"可以拿到数据的");
-             
-             [YJLHUD dismissWithDelay:0.2];
-            for (NSDictionary *dic in responseObject[@"data"]){
-                ShopsrecruitModel *model = [[ShopsrecruitModel alloc]init];
-                model.CompanyJobname    = dic[@"category"];
-                model.Companyname       = dic[@"name"];
-                model.CompanyArea       = dic[@"districter"];
-                model.CompanyTimers     = dic[@"time"];
-                model.CompanySuffer     = dic[@"experience"];
-                model.Companyeducation  = dic[@"edu"];
-                model.Companysalary     = dic[@"money"];
-                model.Companyid         = dic[@"id"];
-                [model setValuesForKeysWithDictionary:dic];
-                [[RecruitData sharerecruitData]addrecruit:model];
-                [PHArr addObject:model];
-            }
-            NSLog(@" ZP加载后现在总请求到数据有%ld个",PHArr.count);
-            
-           [self.Shopsrecruittableview.mj_footer endRefreshing];
-            
-        }else{
-            
-            NSLog(@"300--拿不到数据啊");
-             PHpage--;
-            [self.BGlab setHidden:YES];
-           
-            [self.Shopsrecruittableview.mj_footer endRefreshing];
-          
-            [YJLHUD showErrorWithmessage:@"没有更多数据"];
-            [YJLHUD dismissWithDelay:1];
-            
-            [self.Shopsrecruittableview.mj_footer endRefreshingWithNoMoreData];
-        }
-        
+
+       
+       //移到异步线程做
+       dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+           if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]) {
+               //            NSLog(@"可以拿到数据的");
+               
+               [YJLHUD dismissWithDelay:0.2];
+               
+               for (NSDictionary *dic in responseObject[@"data"]){
+                   ShopsrecruitModel *model = [[ShopsrecruitModel alloc]init];
+                   model.CompanyJobname    = dic[@"category"];
+                   model.Companyname       = dic[@"name"];
+                   model.CompanyArea       = dic[@"districter"];
+                   model.CompanyTimers     = dic[@"time"];
+                   model.CompanySuffer     = dic[@"experience"];
+                   model.Companyeducation  = dic[@"edu"];
+                   model.Companysalary     = dic[@"money"];
+                   model.Companyid         = dic[@"id"];
+                   [model setValuesForKeysWithDictionary:dic];
+                   [[RecruitData sharerecruitData]addrecruit:model];
+                   [PHArr addObject:model];
+               }
+               NSLog(@" ZP加载后现在总请求到数据有%ld个",PHArr.count);
+               
+               [self.Shopsrecruittableview.mj_footer endRefreshing];
+               
+           }else{
+               
+               NSLog(@"300--拿不到数据啊");
+               PHpage--;
+               [self.BGlab setHidden:YES];
+               
+               [self.Shopsrecruittableview.mj_footer endRefreshing];
+               
+               [YJLHUD showErrorWithmessage:@"没有更多数据"];
+               [YJLHUD dismissWithDelay:1];
+               
+               [self.Shopsrecruittableview.mj_footer endRefreshingWithNoMoreData];
+           }
+      
         // 主线程执行：
         dispatch_async(dispatch_get_main_queue(), ^{
              [self. Shopsrecruittableview reloadData];
         });
+    });
     }
          failure:^(NSURLSessionDataTask *task, NSError *error) {
              NSLog(@"请求数据失败----%@",error);

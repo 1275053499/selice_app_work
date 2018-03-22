@@ -172,51 +172,52 @@
         
 //        NSLog(@"请求数据成功----%@",responseObject[@"data"][@"values"]);
 //        NSLog(@"判断数据=======%@", responseObject[@"code"]);
-        if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]) {
-//            NSLog(@"可以拿到数据的");
-            [YJLHUD showSuccessWithmessage:@"加载成功"];
-           [YJLHUD dismissWithDelay:0.2];
-            for (NSDictionary *dic in responseObject[@"data"][@"values"]){
-                Shopsitemodel *model = [[Shopsitemodel alloc]init];
-                 model.Shopsitetitle      = dic[@"title"];
-                 model.Shopsitedescribe   = dic[@"detail"];
-                 model.Shopsitetype       = dic[@"type"];
-                 model.Shopsitearea       = dic[@"areas"];
-                 model.Shopsiterent       = dic[@"rent"];
-                 model.Shopsitequyu       = dic[@"districter"];
-                 model.Shopsitesubid      = dic[@"subid"];
-                 [model setValuesForKeysWithDictionary:dic];
-                //                 得到的数据加入数据库
-                 [[XZdataBase shareXZdataBase]addshopXZ:model];
-                 [self.PHDataArr addObject:model];
-            }
-             NSLog(@" 加载后现在总请求到数据有%ld个",self.PHDataArr.count);
-            //  后台执行：
-            dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"XZisFirstCome"];//设置下一次不走这里了
-                [[NSUserDefaults standardUserDefaults] synchronize];
-            });
-          
-            [self.BGlab setHidden:YES];
-            self.Shopsitetableview.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-            
-        }else{
-            
-            [self.BGlab setHidden:NO];
-             self.BGlab.text             = @"没有更多数据";
-             self.Shopsitetableview.separatorStyle = UITableViewCellSeparatorStyleNone;
-             [self.Shopsitetableview.mj_footer endRefreshingWithNoMoreData];
-            [YJLHUD showErrorWithmessage:@"没有更多数据"];
-            [YJLHUD dismissWithDelay:1];
-        }
+
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]) {
+                //            NSLog(@"可以拿到数据的");
+                [YJLHUD showSuccessWithmessage:@"加载成功"];
+                [YJLHUD dismissWithDelay:0.2];
+                for (NSDictionary *dic in responseObject[@"data"][@"values"]){
+                    Shopsitemodel *model = [[Shopsitemodel alloc]init];
+                    model.Shopsitetitle      = dic[@"title"];
+                    model.Shopsitedescribe   = dic[@"detail"];
+                    model.Shopsitetype       = dic[@"type"];
+                    model.Shopsitearea       = dic[@"areas"];
+                    model.Shopsiterent       = dic[@"rent"];
+                    model.Shopsitequyu       = dic[@"districter"];
+                    model.Shopsitesubid      = dic[@"subid"];
+                    [model setValuesForKeysWithDictionary:dic];
+                    //                 得到的数据加入数据库
+                    [[XZdataBase shareXZdataBase]addshopXZ:model];
+                    [self.PHDataArr addObject:model];
+                }
+                NSLog(@" 加载后现在总请求到数据有%ld个",self.PHDataArr.count);
+               
+                    [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"XZisFirstCome"];//设置下一次不走这里了
+                    [[NSUserDefaults standardUserDefaults] synchronize];
         
-       
-         [self.Shopsitetableview .mj_header endRefreshing];
+                [self.BGlab setHidden:YES];
+                self.Shopsitetableview.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+                
+            }else{
+                
+                [self.BGlab setHidden:NO];
+                self.BGlab.text             = @"没有更多数据";
+                self.Shopsitetableview.separatorStyle = UITableViewCellSeparatorStyleNone;
+                [self.Shopsitetableview.mj_footer endRefreshingWithNoMoreData];
+                [YJLHUD showErrorWithmessage:@"没有更多数据"];
+                [YJLHUD dismissWithDelay:1];
+            }
+            
+            
+            [self.Shopsitetableview .mj_header endRefreshing];
+            
         // 主线程执行：
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.Shopsitetableview reloadData];
         });
-        
+    });
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"请求数据失败----%@",error);
         if (error.code == -999) {
@@ -252,40 +253,42 @@
         
 //        NSLog(@"请求数据成功----%@",responseObject);
 //        NSLog(@"判断数据=======%@", responseObject[@"code"]);
-        if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]) {
-//            NSLog(@"可以拿到数据的");
-    
-            [YJLHUD dismissWithDelay:0.2];
-            for (NSDictionary *dic in responseObject[@"data"][@"values"]){
-                Shopsitemodel *model     = [[Shopsitemodel alloc]init];
-                model.Shopsitetitle      = dic[@"title"];
-                model.Shopsitedescribe   = dic[@"detail"];
-                model.Shopsitetype       = dic[@"type"];
-                model.Shopsitearea       = dic[@"areas"];
-                model.Shopsiterent       = dic[@"rent"];
-                model.Shopsitequyu       = dic[@"districter"];
-                model.Shopsitesubid      = dic[@"subid"];
-                [model setValuesForKeysWithDictionary:dic];
-                 [[XZdataBase shareXZdataBase]addshopXZ:model];
-                [self.PHDataArr addObject:model];
-            }
-            NSLog(@" ZP加载后现在总请求到数据有%ld个",self.PHDataArr.count);
-        }else{
-            NSLog(@"300--拿不到数据啊");
-            PHpage--;
-           
-            [YJLHUD showErrorWithmessage:@"没有更多数据"];
-            [YJLHUD dismissWithDelay:1];
-            [self.Shopsitetableview.mj_footer endRefreshingWithNoMoreData];
-        }
+
         
-      
+      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+          if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]) {
+              //            NSLog(@"可以拿到数据的");
+              
+              [YJLHUD dismissWithDelay:0.2];
+              for (NSDictionary *dic in responseObject[@"data"][@"values"]){
+                  Shopsitemodel *model     = [[Shopsitemodel alloc]init];
+                  model.Shopsitetitle      = dic[@"title"];
+                  model.Shopsitedescribe   = dic[@"detail"];
+                  model.Shopsitetype       = dic[@"type"];
+                  model.Shopsitearea       = dic[@"areas"];
+                  model.Shopsiterent       = dic[@"rent"];
+                  model.Shopsitequyu       = dic[@"districter"];
+                  model.Shopsitesubid      = dic[@"subid"];
+                  [model setValuesForKeysWithDictionary:dic];
+                  [[XZdataBase shareXZdataBase]addshopXZ:model];
+                  [self.PHDataArr addObject:model];
+              }
+              NSLog(@" ZP加载后现在总请求到数据有%ld个",self.PHDataArr.count);
+          }else{
+              NSLog(@"300--拿不到数据啊");
+              PHpage--;
+              
+              [YJLHUD showErrorWithmessage:@"没有更多数据"];
+              [YJLHUD dismissWithDelay:1];
+              [self.Shopsitetableview.mj_footer endRefreshingWithNoMoreData];
+          }
          [self.BGlab setHidden:YES];
          [self.Shopsitetableview .mj_footer endRefreshing];
         // 主线程执行：
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.Shopsitetableview reloadData];
         });
+      });
     }
          failure:^(NSURLSessionDataTask *task, NSError *error) {
              NSLog(@"请求数据失败----%@",error);

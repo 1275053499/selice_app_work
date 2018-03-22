@@ -274,64 +274,66 @@
         
 //        NSLog(@"请求数据成功----%@",responseObject);
 //        NSLog(@"判断数据=======%@", responseObject[@"code"]);
-        if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]) {
-//            NSLog(@"可以拿到数据的");
-           
-            [YJLHUD dismissWithDelay:1];
-            NSMutableArray *arr = responseObject[@"data"];
-            if (arr.count<1) {
-                    NSLog(@"200-500--拿不到数据啊");
-                
-                    PHpage--;
-                
-                [YJLHUD showErrorWithmessage:@"没有更多数据"];
-                [YJLHUD dismissWithDelay:1];
-                    [self.Shopsattorntableview.mj_footer endRefreshingWithNoMoreData];
-            }
-            else{
-                
-            for (NSDictionary *dic in responseObject[@"data"][@"values"]){
-                
-                JX_FourModel *model = [[JX_FourModel alloc]init];
-                model.JX_picture    = dic[@"imagers"][0];
-                model.JX_title      = dic[@"title"];
-                model.JX_quyu       = dic[@"districter"];
-                model.JX_time       = dic[@"time"];
-                model.JX_tag        = dic[@"type"];
-                model.JX_area       = dic[@"area"];
-                model.JX_rent       = dic[@"rent"];
-                model.JX_subid      = dic[@"subid"];
-                [model setValuesForKeysWithDictionary:dic];
-                //            得到的数据加入数据库
-                [[ZRdataBase shareZRdataBase]addshopZR:model];
-                [self.PHDataArr addObject:model];
-            }
-            
-            NSLog(@"转让加载后现在总请求到数据有%ld个",self.PHDataArr.count);
-            [self.Shopsattorntableview .mj_footer endRefreshing];
-           
-            
-            }
-        }
-        
-        else{
-            
-            NSLog(@"500--拿不到数据啊");
-           
-            PHpage--;
-            
-            [YJLHUD showErrorWithmessage:@"没有更多数据了哦"];
-            [YJLHUD dismissWithDelay:1];
-            
-            [self.Shopsattorntableview.mj_footer endRefreshingWithNoMoreData];
-        }
-        
+
+     
+     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+         if ([[responseObject[@"code"] stringValue] isEqualToString:@"200"]) {
+             //            NSLog(@"可以拿到数据的");
+             
+             [YJLHUD dismissWithDelay:1];
+             NSMutableArray *arr = responseObject[@"data"];
+             if (arr.count<1) {
+                 NSLog(@"200-500--拿不到数据啊");
+                 
+                 PHpage--;
+                 
+                 [YJLHUD showErrorWithmessage:@"没有更多数据"];
+                 [YJLHUD dismissWithDelay:1];
+                 [self.Shopsattorntableview.mj_footer endRefreshingWithNoMoreData];
+             }
+             else{
+                 
+                 for (NSDictionary *dic in responseObject[@"data"][@"values"]){
+                     
+                     JX_FourModel *model = [[JX_FourModel alloc]init];
+                     model.JX_picture    = dic[@"imagers"][0];
+                     model.JX_title      = dic[@"title"];
+                     model.JX_quyu       = dic[@"districter"];
+                     model.JX_time       = dic[@"time"];
+                     model.JX_tag        = dic[@"type"];
+                     model.JX_area       = dic[@"area"];
+                     model.JX_rent       = dic[@"rent"];
+                     model.JX_subid      = dic[@"subid"];
+                     [model setValuesForKeysWithDictionary:dic];
+                     //            得到的数据加入数据库
+                     [[ZRdataBase shareZRdataBase]addshopZR:model];
+                     [self.PHDataArr addObject:model];
+                 }
+                 
+                 NSLog(@"转让加载后现在总请求到数据有%ld个",self.PHDataArr.count);
+                 [self.Shopsattorntableview .mj_footer endRefreshing];
+                 
+             }
+         }
+         
+         else{
+             
+             NSLog(@"500--拿不到数据啊");
+             
+             PHpage--;
+             
+             [YJLHUD showErrorWithmessage:@"没有更多数据了哦"];
+             [YJLHUD dismissWithDelay:1];
+             
+             [self.Shopsattorntableview.mj_footer endRefreshingWithNoMoreData];
+         }
         // 主线程执行：
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.Shopsattorntableview reloadData];
             self.Shopsattorntableview.delegate          = self;
             self.Shopsattorntableview.dataSource        = self;
         });
+     });
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"请求数据失败----%@",error);
         if (error.code == -999) {
