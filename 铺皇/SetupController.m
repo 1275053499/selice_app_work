@@ -53,7 +53,9 @@
     [self.view addSubview:backlogin];
 }
 
+
 -(void)Pullout{
+    
     
     //  本地存登录状态
     [[YJLUserDefaults shareObjet]saveObject:@"loginno" forKey:YJLloginstate];
@@ -236,7 +238,7 @@
 
                     if ([[[YJLUserDefaults shareObjet]getObjectformKey:YJLloginstate] isEqualToString:@"loginyes"])
                     {
-                       
+                        
                         modifyController *ctl = [[modifyController alloc]init];
                         self.hidesBottomBarWhenPushed = YES;//如果在push跳转时需要隐藏tabBar
                         [self.navigationController pushViewController:ctl animated:YES];
@@ -244,6 +246,7 @@
                     }
                 
                 else{
+                    
                         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"提示"] message:@"请不要搞事情，您都没有登录过铺皇网" preferredStyle:UIAlertControllerStyleAlert];
                         UIAlertAction *commitAction = [UIAlertAction actionWithTitle:@"登录" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
                                     NSLog(@"点击了去登录");
@@ -265,6 +268,7 @@
             }
 }
 
+
 #pragma  -mark - 手势返回
 - (void)recognizer:(UISwipeGestureRecognizer*)recognizer{
    
@@ -284,14 +288,13 @@
     
     [super viewWillAppear:animated];
      [self.navigationController setNavigationBarHidden:NO animated:YES];
-
+    self.tabBarController.tabBar.hidden = YES;
 }
 
 #pragma  -mark  视图渲染推出
 - (void)viewWillDisappear:(BOOL)animated {
     
     [super viewWillDisappear:animated];
-    
 }
 
 @end

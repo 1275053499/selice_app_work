@@ -14,7 +14,7 @@
 #import "SafeController.h"
 #import "LoginController.h"
 #import "DoubtController.h"
-
+#import "PersonViewController.h"
 @interface SetupController : UIViewController
 
 @property (nonatomic,strong)UITableView *settableview;

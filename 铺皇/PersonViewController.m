@@ -230,7 +230,7 @@
 -(void)NOcreatheader{
 
     [self.loginbtn       setHidden:NO];     //登录按钮
-    _personimgview.image                = [UIImage imageNamed:@"people"];
+    _personimgview.image       = [UIImage imageNamed:@"people"];
     [_personnickname     setHidden:YES];    //昵称
     [_authenticationimg  setHidden:NO];     //认证图
     [_integralbtn        setHidden:YES];    //积分按钮
@@ -273,18 +273,18 @@
     {
         NSLog(@"个人详情页面");
         
-        PersonhomeController *ctl = [[PersonhomeController alloc]init];
-        self.hidesBottomBarWhenPushed = YES;//如果在push跳转时需要隐藏tabBar
+        PersonhomeController *ctl       = [[PersonhomeController alloc]init];
+        self.hidesBottomBarWhenPushed   = YES;//如果在push跳转时需要隐藏tabBar
         [self.navigationController pushViewController:ctl animated:YES];
-        self.hidesBottomBarWhenPushed = NO;//1.并在push后设置self.hidesBottomBarWhenPushed=NO;2.这样back回来的时候，tabBar会恢复正常显示。
+        self.hidesBottomBarWhenPushed   = NO;//1.并在push后设置self.hidesBottomBarWhenPushed=NO;2.这样back回来的时候，tabBar会恢复正常显示。
     }
     else{
         
         NSLog(@"登录去....");
-        LoginController *ctl        = [[LoginController alloc]init];
-        self.hidesBottomBarWhenPushed = YES;//如果在push跳转时需要隐藏tabBar
+        LoginController *ctl            = [[LoginController alloc]init];
+        self.hidesBottomBarWhenPushed   = YES;//如果在push跳转时需要隐藏tabBar
         [self.navigationController pushViewController:ctl animated:YES];
-        self.hidesBottomBarWhenPushed = NO;//1.并在push后设置self.hidesBottomBarWhenPushed=NO;2.这样back回来的时候，tabBar会恢复正常显示。
+        self.hidesBottomBarWhenPushed   = NO;//1.并在push后设置self.hidesBottomBarWhenPushed=NO;2.这样back回来的时候，tabBar会恢复正常显示。
     }
 }
 
@@ -292,20 +292,21 @@
 -(void)clicklogin{
     
         NSLog(@"注册登录一下呗");
-        LoginController *ctl        = [[LoginController alloc]init];
-        self.hidesBottomBarWhenPushed = YES;//如果在push跳转时需要隐藏tabBar
+        LoginController *ctl            = [[LoginController alloc]init];
+        self.hidesBottomBarWhenPushed   = YES;//如果在push跳转时需要隐藏tabBar
         [self.navigationController pushViewController:ctl animated:YES];
-        self.hidesBottomBarWhenPushed = NO;//1.并在push后设置self.hidesBottomBarWhenPushed=NO;2.这样back回来的时候，tabBar会恢复正常显示。
+        self.hidesBottomBarWhenPushed   = NO;//1.并在push后设置self.hidesBottomBarWhenPushed=NO;2.这样back回来的时候，tabBar会恢复正常显示。
 }
 
 #pragma mark - 设置
 -(void)Setup{
 
     NSLog(@"点击设置按钮");
-    SetupController *ctl        = [[SetupController alloc]init];
-    self.hidesBottomBarWhenPushed = YES;//如果在push跳转时需要隐藏tabBar
+   
+    SetupController *ctl            = [[SetupController alloc]init];
+    self.hidesBottomBarWhenPushed   = YES;//如果在push跳转时需要隐藏tabBar
     [self.navigationController pushViewController:ctl animated:YES];
-    self.hidesBottomBarWhenPushed = NO;//1.并在push后设置self.hidesBottomBarWhenPushed=NO;2.这样back回来的时候，tabBar会恢复正常显示。
+    self.hidesBottomBarWhenPushed   = NO;//1.并在push后设置self.hidesBottomBarWhenPushed=NO;2.这样back回来的时候，tabBar会恢复正常显示。
 }
 
 #pragma mark - Tableviewdatasource代理

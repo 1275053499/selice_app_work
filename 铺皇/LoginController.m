@@ -76,25 +76,25 @@
     [Backbtn addTarget:self action:@selector(BackButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:Backbtn];
     
-    welcome = [[YJLlightlabel alloc] init];
-    welcome.frame = CGRectMake(KMainScreenWidth/2-150, 100, 300, 30);
-    welcome.text = @"欢迎加入铺皇";
-    welcome.textColor = [UIColor whiteColor];       //设置固定颜色
-    welcome.font = [UIFont systemFontOfSize:30.0f];
-    welcome.shimmerType = ST_AutoReverse;
-    welcome.shimmerWidth = 20;                      // 高亮的宽度
-    welcome.shimmerRadius = 20;                     // 阴影的宽度
+    welcome             = [[YJLlightlabel alloc] init];
+    welcome.frame       = CGRectMake(KMainScreenWidth/2-150, 100, 300, 30);
+    welcome.text        = @"欢迎加入铺皇";
+    welcome.textColor   = [UIColor whiteColor];       //设置固定颜色
+    welcome.font        = [UIFont systemFontOfSize:30.0f];
+    welcome.shimmerType     = ST_AutoReverse;
+    welcome.shimmerWidth    = 20;                      // 高亮的宽度
+    welcome.shimmerRadius   = 20;                     // 阴影的宽度
     [welcome startShimmer];                         // 开启闪烁
     [self.view addSubview:welcome];
     
-    life = [[YJLlightlabel alloc] init];
-    life.frame = CGRectMake(KMainScreenWidth/2-150, 135, 300, 20);
-    life.text = @"互 | 联 | 网 | 生 | 活";
-    life.textColor = [UIColor whiteColor];
-    life.font = [UIFont systemFontOfSize:15.0f];
-    life.shimmerType = ST_AutoReverse;
-    life.shimmerWidth = 20;                      // 高亮的宽度
-    life.shimmerRadius = 20;                     // 阴影的宽度
+    life            = [[YJLlightlabel alloc] init];
+    life.frame      = CGRectMake(KMainScreenWidth/2-150, 135, 300, 20);
+    life.text       = @"互 | 联 | 网 | 生 | 活";
+    life.textColor  = [UIColor whiteColor];
+    life.font       = [UIFont systemFontOfSize:15.0f];
+    life.shimmerType    = ST_AutoReverse;
+    life.shimmerWidth   = 20;                      // 高亮的宽度
+    life.shimmerRadius  = 20;                     // 阴影的宽度
     [life startShimmer];                         // 开启闪烁
     [self.view addSubview:life];
 }
@@ -102,9 +102,9 @@
 #pragma  -mark MID
 -(void)buildUI2{
     
-    midview=[[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(life.frame)+100,KMainScreenWidth, 100)];
-    midview.layer.cornerRadius=4.0;
-    midview.backgroundColor=[UIColor clearColor];
+    midview                     =[[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(life.frame)+100,KMainScreenWidth, 100)];
+    midview.layer.cornerRadius  =4.0;
+    midview.backgroundColor     =[UIColor clearColor];
     [self.view addSubview:midview];
     
 //    账号
@@ -113,11 +113,11 @@
         
           user.text = NSuser;
     }
-    user.keyboardType=UIKeyboardTypeNumberPad;
-    user.clearButtonMode = UITextFieldViewModeWhileEditing;
+    user.keyboardType       =UIKeyboardTypeNumberPad;
+    user.clearButtonMode    = UITextFieldViewModeWhileEditing;
     
 //    账号左侧图片
-    userImageView=[self createImageViewFrame:CGRectMake(25, 15, 23, 25) imageName:@"user" color:nil];
+    userImageView           =[self createImageViewFrame:CGRectMake(25, 15, 23, 25) imageName:@"user" color:nil];
 
 //    账号下方线条
     line1=[self createImageViewFrame:CGRectMake(25, 50, KMainScreenWidth-50, 1) imageName:nil color:[UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:.7]];
@@ -146,8 +146,8 @@
     [midview addSubview:line2];
     
 //    密文显示隐藏按钮
-    YCbtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    YCbtn.frame = CGRectMake(CGRectGetMaxX(password.frame)+5,65 , 25,25);
+    YCbtn               = [UIButton buttonWithType:UIButtonTypeCustom];
+    YCbtn.frame         = CGRectMake(CGRectGetMaxX(password.frame)+5,65 , 25,25);
     [YCbtn setImage:[UIImage imageNamed:@"XS"] forState:UIControlStateNormal];
     [YCbtn setImage:[UIImage imageNamed:@"YC"] forState:UIControlStateSelected];
     [YCbtn addTarget:self action:@selector(YCclick:) forControlEvents:UIControlEventTouchUpInside];
@@ -306,8 +306,8 @@
 else{
     
         //电话号码不正确
-        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:@"您输入手机号出错，请确认号码再尝试此操作。" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+        UIAlertController *alertC   = [UIAlertController alertControllerWithTitle:@"提示" message:@"您输入手机号出错，请确认号码再尝试此操作。" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *alertAction  = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
         [alertC addAction:alertAction];
         [self presentViewController:alertC animated:YES completion:nil];
     }
